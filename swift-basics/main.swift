@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+print("The Guided Tour of Swift: Chapter 1")
 /*****************
  | SIMPLE VALUES |
  *************************/
