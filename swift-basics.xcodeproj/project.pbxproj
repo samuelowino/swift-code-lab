@@ -12,6 +12,7 @@
 		DCC339FF2746990700297A57 /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC339FE2746990700297A57 /* operators.swift */; };
 		DCC33A012746AF3500297A57 /* collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC33A002746AF3500297A57 /* collections.swift */; };
 		DCC33A032747BD4800297A57 /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC33A022747BD4800297A57 /* functions.swift */; };
+		DCC33A05274810AA00297A57 /* closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC33A04274810AA00297A57 /* closures.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -33,6 +34,7 @@
 		DCC339FE2746990700297A57 /* operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operators.swift; sourceTree = "<group>"; };
 		DCC33A002746AF3500297A57 /* collections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = collections.swift; sourceTree = "<group>"; };
 		DCC33A022747BD4800297A57 /* functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
+		DCC33A04274810AA00297A57 /* closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = closures.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				DCC339FE2746990700297A57 /* operators.swift */,
 				DCC33A002746AF3500297A57 /* collections.swift */,
 				DCC33A022747BD4800297A57 /* functions.swift */,
+				DCC33A04274810AA00297A57 /* closures.swift */,
 			);
 			path = "swift-basics";
 			sourceTree = "<group>";
@@ -133,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC1F45FF2743951D0064E92A /* the-basics.swift in Sources */,
+				DCC33A05274810AA00297A57 /* closures.swift in Sources */,
 				DCC33A032747BD4800297A57 /* functions.swift in Sources */,
 				DCAFC4822740DA2D0097DB29 /* main.swift in Sources */,
 				DCC339FF2746990700297A57 /* operators.swift in Sources */,
