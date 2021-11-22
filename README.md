@@ -1,5 +1,5 @@
 # Swift Code Lab
-Playing with some swift concepts
+## Playing with some swift concepts
 
 > XCode does not support running console programs with alternative file names from the usual main.swift
 
@@ -7,10 +7,15 @@ Playing with some swift concepts
 
 ```
 $ cd swift-basics/swift-basics
-$ swift <files-name>.swift
+$ swift <file-name>.swift
 
 //e.g
 swift main.swift 
 // this will run the main.swift file
 ```
 
+## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
+
+![Value Types](value-types-enums-structs.png)
+
+![Reference Types](refrence-types-classes.png)
