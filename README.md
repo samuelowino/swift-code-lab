@@ -16,6 +16,12 @@ swift main.swift
 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
+> Classes are references types while atructures and enumerations are value types.A value type is a type whose value is copied when it's assigned to a variable or constant. Classes are reference types. Unlike value types, reference types are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy a referebce to the same existing instance is used.ref
+
+### 1. Value Types
+
 ![Value Types](value-types-enums-structs.png)
+
+### 2. Reference Types
 
 ![Reference Types](refrence-types-classes.png)
