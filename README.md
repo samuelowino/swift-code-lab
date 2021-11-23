@@ -1,4 +1,7 @@
 # Swift Code Lab
+
+![Swift Logo](Swift_logo_white.svg)
+
 ## Playing with some swift concepts
 
 > XCode does not support running console programs with alternative file names from the usual main.swift
