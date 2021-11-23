@@ -11,6 +11,7 @@
 		DC4E3558274BA904008BE29B /* structures_and_classes.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3557274BA904008BE29B /* structures_and_classes.swift */; };
 		DC4E355A274BC8DC008BE29B /* properties.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E3559274BC8DC008BE29B /* properties.swift */; };
 		DC4E355C274BE815008BE29B /* inheritance.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E355B274BE815008BE29B /* inheritance.swift */; };
+		DC4E355E274CBE58008BE29B /* initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4E355D274CBE58008BE29B /* initialization.swift */; };
 		DCAFC4822740DA2D0097DB29 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCAFC4812740DA2D0097DB29 /* main.swift */; };
 		DCC339FF2746990700297A57 /* operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC339FE2746990700297A57 /* operators.swift */; };
 		DCC33A012746AF3500297A57 /* collections.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCC33A002746AF3500297A57 /* collections.swift */; };
@@ -35,6 +36,7 @@
 		DC4E3557274BA904008BE29B /* structures_and_classes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = structures_and_classes.swift; sourceTree = "<group>"; };
 		DC4E3559274BC8DC008BE29B /* properties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = properties.swift; sourceTree = "<group>"; };
 		DC4E355B274BE815008BE29B /* inheritance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inheritance.swift; sourceTree = "<group>"; };
+		DC4E355D274CBE58008BE29B /* initialization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = initialization.swift; sourceTree = "<group>"; };
 		DCAFC47E2740DA2D0097DB29 /* swift-basics */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "swift-basics"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCAFC4812740DA2D0097DB29 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		DCC339FE2746990700297A57 /* operators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = operators.swift; sourceTree = "<group>"; };
@@ -82,6 +84,7 @@
 				DC4E3557274BA904008BE29B /* structures_and_classes.swift */,
 				DC4E3559274BC8DC008BE29B /* properties.swift */,
 				DC4E355B274BE815008BE29B /* inheritance.swift */,
+				DC4E355D274CBE58008BE29B /* initialization.swift */,
 			);
 			path = "swift-basics";
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				DC4E355C274BE815008BE29B /* inheritance.swift in Sources */,
 				DC4E355A274BC8DC008BE29B /* properties.swift in Sources */,
 				DC1F45FF2743951D0064E92A /* the-basics.swift in Sources */,
+				DC4E355E274CBE58008BE29B /* initialization.swift in Sources */,
 				DCC33A05274810AA00297A57 /* closures.swift in Sources */,
 				DCC33A032747BD4800297A57 /* functions.swift in Sources */,
 				DCAFC4822740DA2D0097DB29 /* main.swift in Sources */,

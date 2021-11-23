@@ -51,11 +51,3 @@ if sharon.register() {
 } else {
     print("Non-Student \(sharon.name) has not been registered to \(sharon.depertment)")
 }
-
-
-
-
-
-
-
-
