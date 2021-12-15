@@ -116,5 +116,24 @@ The closure to execute on completion
 ### receiveValue
 The closure to execute on receipt of a value
 
+## AnyCancellable
+
+A type-erasing cancellable object that executes a provided closure when canceled.
+
+Subscriber implementation can use this type to provide a **"cancellation token"** that makes it possible for a caller to cancel a publisher, but not to use the Subscription object to request items.
+
+> An **AnyCancellable** instance *automcatically* call **cancel()** when deinitialized.
+
+## AnyCancellable.cancel()
+
+> Cancel the activity.
+
+## AnyCancellable.store<C>(in: inout C)
+
+> Stores this type-erasing cancellable instanance in the specified collection.
+
+
+
+
 
 

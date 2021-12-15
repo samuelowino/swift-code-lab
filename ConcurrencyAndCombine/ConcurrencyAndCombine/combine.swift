@@ -17,4 +17,3 @@ let cancellable = rangePublisher.sink(receiveCompletion: { result in
         print("Receive value closure: value \(value)")
     })
 
-
