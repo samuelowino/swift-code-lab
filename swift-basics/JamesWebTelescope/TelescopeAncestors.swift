@@ -7,6 +7,9 @@
 
 import Foundation
 
+//===================
+//  TUPLES          |
+//===================
 let ancestors = (firstAncestor: "Spacelab Infrared Telescope (IRT)",
                  secondAncestor: "Infrared Space Observatory (ISO)",
                  thirdAncestor: "Hubble Space Telescope",
@@ -71,3 +74,61 @@ let tupleElements = tupleMirror.children.map({ $0.value })
 for element in tupleElements {
     print("Tuple elemtn \(element)")
 }
+
+//=======================
+// OPTIONALS            |
+//=======================
+
+var matchingAperture: Double? = nil
+
+func getMatchingAperture(_ telescope: String) -> Double? {
+    if telescope == ancestors.firstAncestor {
+        return 0.15
+    } else if telescope == ancestors.secondAncestor {
+        return 0.60
+    } else if telescope == ancestors.thirdAncestor {
+        return 2.4
+    } else if telescope == ancestors.fourthAncestor {
+        return 2.4
+    } else if telescope == ancestors.fifthAncestor {
+        return 0.85
+    } else if telescope == ancestors.sixthAncestor {
+        return 2.4
+    } else if telescope == ancestors.seventhAncestor {
+        return 3.5
+    }else {
+        return nil
+    }
+}
+
+matchingAperture = getMatchingAperture(ancestors.firstAncestor)
+
+print("The aperture for the \(ancestors.firstAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+matchingAperture = getMatchingAperture(ancestors.secondAncestor)
+
+print("The aperture for the \(ancestors.secondAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+matchingAperture = getMatchingAperture(ancestors.thirdAncestor)
+
+print("The aperture for the \(ancestors.thirdAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+matchingAperture = getMatchingAperture(ancestors.fourthAncestor)
+
+print("The aperture for the \(ancestors.fourthAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+matchingAperture = getMatchingAperture(ancestors.fifthAncestor)
+
+print("The aperture for the \(ancestors.fifthAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+matchingAperture = getMatchingAperture(ancestors.sixthAncestor)
+
+print("The aperture for the \(ancestors.sixthAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+matchingAperture = getMatchingAperture(ancestors.seventhAncestor)
+
+print("The aperture for the \(ancestors.seventhAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+matchingAperture = getMatchingAperture(ancestors.eightAncestor)
+
+print("The aperture for the \(ancestors.eightAncestor) telescope is \(matchingAperture ?? 0.0)")

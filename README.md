@@ -26,9 +26,13 @@ Constants are used in Swift to incrase code safety and declare intent when worki
 
 Swift introduces advanced values that are not found in C or Objective-C such as **tuples**. *Tuples are used to pass around groupings of values.* You can use tuples to return multiple values from a function as a single **compund value*.
 
+Swift also introduces the use of Optional types which handle absence of values.
 
+Swift is type safe, which means you can catch errors early in your code.
 
-
+### Constants and Variables
+Constants and variables associate a name with a value such *welcomeMsg = "Hello Joseph" or numberOfUsers = 1000*
+The value of a constant cannot be changed once it is set while a variable to be changed.
 
 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
