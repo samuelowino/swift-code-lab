@@ -8,7 +8,7 @@
 
 > Therefore to run this code you will need to use the terminal
 
-```
+```shell
 $ cd swift-basics/swift-basics
 $ swift <file-name>.swift
 
