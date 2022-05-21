@@ -10,14 +10,14 @@ import Foundation
 //===================
 //  TUPLES          |
 //===================
-let ancestors = (firstAncestor: "Spacelab Infrared Telescope (IRT)",
-                 secondAncestor: "Infrared Space Observatory (ISO)",
-                 thirdAncestor: "Hubble Space Telescope",
-                 fourthAncestor: "Hubble Near Infrared Camera and Multi-Object Spectrometer (NICMOS)",
-                 fifthAncestor: "Spitzer Space Telescope",
-                 sixthAncestor: "Hubble Wide Field Camera 3 (WFC3)",
-                 seventhAncestor: "Herschel Space Observatory",
-                 eightAncestor: "James Webb Space Telescope")
+let ancestors = (firstAncestor: "Spacelab Infrared Telescope (IRT) 🔭",
+                 secondAncestor: "Infrared Space Observatory (ISO) 🔭",
+                 thirdAncestor: "Hubble Space Telescope 🔭",
+                 fourthAncestor: "Hubble Near Infrared Camera and Multi-Object Spectrometer (NICMOS) 🔭",
+                 fifthAncestor: "Spitzer Space Telescope 🔭",
+                 sixthAncestor: "Hubble Wide Field Camera 3 (WFC3) 🔭",
+                 seventhAncestor: "Herschel Space Observatory 🔭",
+                 eightAncestor: "James Webb Space Telescope 🔭")
 
 print("The very first ancestor to the James Web Telescope is \(ancestors.firstAncestor)")
 print("All ancestors to the James Web Telescope are: \(ancestors)")
@@ -65,6 +65,22 @@ print("Ancestor telescope \(ancestors.sixthAncestor) had a wavelength of \(getTe
 print("Ancestor telescope \(ancestors.seventhAncestor) had a wavelength of \(getTelescopeWavelength(telescope: ancestors.seventhAncestor).1) - \(getTelescopeWavelength(telescope: ancestors.firstAncestor).0)")
 print("Ancestor telescope \(ancestors.eightAncestor) had a wavelength of \(getTelescopeWavelength(telescope: ancestors.eightAncestor).1) - \(getTelescopeWavelength(telescope: ancestors.firstAncestor).0)")
 
+
+let radioTelescopeWavelength = ("Radio 🔭", "mm", 1)
+let infraredTelescopeWavelenth = ("infrared 🔭", "nm", 700)
+
+print("\(radioTelescopeWavelength.0) Telescope, wavelength \(radioTelescopeWavelength.2) \(radioTelescopeWavelength.1)")
+print("\(infraredTelescopeWavelenth.0) Telescope, wavelength \(infraredTelescopeWavelenth.2) \(infraredTelescopeWavelenth.1)")
+
+let (name, units, value) = radioTelescopeWavelength
+
+print("Name: \(name) Wavelength: \(value) in \(units)")
+
+let (infraredName, _, infraredValue) = infraredTelescopeWavelenth
+print("Name: \(infraredName) Wavelength: \(infraredValue) in whatever units")
+
+let radioTelescope = (name: "Radio Telescope", units: "mm", value: 1)
+print("\(radioTelescope.name) \(radioTelescope.value) \(radioTelescope.units)")
 
 //Reflection
 let tuple = (1, 2, "3")
@@ -133,6 +149,16 @@ matchingAperture = getMatchingAperture(ancestors.eightAncestor)
 
 print("The aperture for the \(ancestors.eightAncestor) telescope is \(matchingAperture ?? 0.0)")
 
+//=======================
+// OPTIONAL BINDING
+//=======================
+var apolloMission: Int? = nil
+if let mission = apolloMission {
+    print("Found a matching apollo mission \(mission)")
+} else {
+    print("We could not find an apollo mission")
+}
+
 //=========================
 //  VARIABLES AND CONSTANTS
 //=========================
@@ -163,8 +189,22 @@ print(#"Planet \#(planet) supports life"#)
 
 let moonOscillationRadiusFloat: Float = 0.123456789101112131415161718192021222324252627282930123456789101112131415161718192021222324252627282930
 
-print("Moon Oscillation Radius in Float \(moonOscillationRadiusFloat)") //this is striped down to 0.12345679 since Float is limited to 32-bit and about 6 decimal points precision
+print("Moon Oscillation Radius in Float \(moonOscillationRadiusFloat)")
+//this is striped down to 0.12345679 since Float is limited to 32-bit and about 6 decimal points precision
 
 let moonOscillationRadiusDouble: Double = 0.123456789101112131415161718192021222324252627282930123456789101112131415161718192021222324252627282930
 
-print("Moon Oscillation Radius in Double \(moonOscillationRadiusDouble)") //this is represented as 0.12345678910111213 which is longer than the matching float value
+print("Moon Oscillation Radius in Double \(moonOscillationRadiusDouble)")
+//this is represented as 0.12345678910111213 which is longer than the matching float value
+
+//Number formating
+let realOscilations: Double = 345_342_001.00
+
+//================
+//  TYPE ALIAS   |
+//================
+typealias Localisation = String
+
+let astronaut: Localisation = "Buzz Aldrin"
+
+print("\(astronaut)")

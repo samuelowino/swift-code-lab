@@ -119,6 +119,100 @@ let moonOscillationRadiusDouble: Double = 0.123456789101112131415161718192021222
 print("Moon Oscillation Radius in Double \(moonOscillationRadiusDouble)") //this is represented as 0.12345678910111213 which is longer than the matching float value
 ```
 
+Numeric literals can contain extra formatting to make them easier to read.
+
+```swift
+let cashBalance: Double = 345_342_001
+```
+
+### Type Aliases
+Type alias provide an alternative name for an existing type
+You define type alias with the **typealias** keyword
+
+```swift
+typealias StringText = String
+var astronaut: StringText = "Buzz Aldrin"
+```
+
+### Tuples
+Tuples grouing multiple values into a single compound value. The values within a tuple can be of different types.
+
+```swift
+let radioTelescopeWavelength = ("Radio 🔭", "mm", 1)
+let infraredTelescopeWavelenth = ("infrared 🔭", "nm", 700)
+```
+
+You can decompose a tuples contents into seperate constants and variables
+
+```swift
+let (name, units, value) = radioTelescopeWavelength
+
+print("Name: \(name) Wavelength: \(value) in \(units)")
+```
+
+If you only need part of the tuple, you can ignore some parts of the tuple with an underscore **(_)**
+
+```swift
+let (name, _, value) = radioTelescopeWavelength
+print("Name: \(name) Wavelength: \(value) in whatever units")
+```
+
+Alternatively access the tuple values using their indices starting with 0
+
+```swift
+let infraredTelescopeWavelenth = ("infrared 🔭", "nm", 700)
+print("Name: \(infraredTelescopeWavelenth.0) Wavelength: \(infraredTelescopeWavelenth.2) in \(infraredTelescopeWavelenth.1)")
+```
+You can name tuple elements at declaration
+
+```swift
+let radioTelescope = (name: "Radio Telescope", units: "mm", value: 1)
+print("\(radioTelescope.name) \(radioTelescope.value) \(radioTelescope.units)")
+```
+
+### Optionals
+Optionals are used in situations where a value might be absent. 
+Optionals represent two states, either absence of a value of presence of a value.
+
+```swift
+var apolloMission: Int? = nil
+``` 
+
+### Optional Binding
+You use optional binding to determine whether an optional contains a value and if so to make that value available as a temporary variable or value.
+
+```swift
+var apolloMission: Int? = nil
+if let mission = apolloMission {
+    print("Found a matching apollo mission \(mission)")
+} else {
+    print("We could not find an apollo mission")
+}
+```
+
+### Error Handling
+
+Use error handling to respond to error conditions your app might experience during execution.
+Error handling allows you to determine the underlying cause of the failure and to propagate the error to another part of the program if need be.
+
+When a function encounters an error condition it **throws** an error.
+
+```swift
+func doSomeDangerousThings() throws {
+    
+}
+```
+
+When you call a function that can throw an error you prepend it with the **try** keyword.
+
+```swift
+do {
+    try doSomeDangerousThings()
+} catch {
+    print("Whoops! doing dangerous things leads to some failures")
+}
+```
+
 
 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
