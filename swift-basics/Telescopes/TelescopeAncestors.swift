@@ -132,3 +132,39 @@ print("The aperture for the \(ancestors.seventhAncestor) telescope is \(matching
 matchingAperture = getMatchingAperture(ancestors.eightAncestor)
 
 print("The aperture for the \(ancestors.eightAncestor) telescope is \(matchingAperture ?? 0.0)")
+
+//=========================
+//  VARIABLES AND CONSTANTS
+//=========================
+let firstManInSpace: String = "Yuri Gagarin from Russia 1961"
+var nextMarsMission: String = "Unlikely"
+
+print("First name in space is \(firstManInSpace). The next mars mission is scheduled for, \(nextMarsMission)")
+
+print(#"This string skips all interpolation attempts like \(firstManInSpace) and \(nextMarsMission)"#)
+
+/**
+ * ========================
+ *  PRINT() FUNCTION
+ * ========================
+ */
+
+let planet: String = "Earth"
+
+print(#"Planet \(planet) supports life"#)
+print("Planet \(planet) supports life")
+print(#"Planet \#(planet) supports life"#)
+
+/**
+ * =====================================
+ *      FLOATING POINT : DOUBLE AND FLOAT
+ * =====================================
+ */
+
+let moonOscillationRadiusFloat: Float = 0.123456789101112131415161718192021222324252627282930123456789101112131415161718192021222324252627282930
+
+print("Moon Oscillation Radius in Float \(moonOscillationRadiusFloat)") //this is striped down to 0.12345679 since Float is limited to 32-bit and about 6 decimal points precision
+
+let moonOscillationRadiusDouble: Double = 0.123456789101112131415161718192021222324252627282930123456789101112131415161718192021222324252627282930
+
+print("Moon Oscillation Radius in Double \(moonOscillationRadiusDouble)") //this is represented as 0.12345678910111213 which is longer than the matching float value
