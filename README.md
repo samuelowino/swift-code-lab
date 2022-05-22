@@ -17,7 +17,7 @@ swift main.swift
 // this will run the main.swift file
 ```
 
-## Swift Basics
+# Swift Basics
 Swift is a language for **iOS, macOS, watchOS and tvOS** development. Swift shares certain similarities with **C** and **Objective-C**
 
 Swift provides it's own versions of the C value types such as **Int for integers, double and float for floating type values, Bool for booleans and String for textual data**. Swift also provides three primary **collection types**, **Array**, **Set** and **Dictionary**.
@@ -213,7 +213,71 @@ do {
 }
 ```
 
+- - -
 
+# Basic Operators
+
+Operators are special symbols or phrases that are use to check, changed or combine values.
+
+```swift
+let sum = 2 + 2
+```
+
+### Overflow Operators
+
+If you try to insert a number into an integer constant or variable that can't hold that value, by default swift reports it as an error instead of allowing an invalid value to be created.
+This behaviour increases safety while working with values/numbers that are either too large or too small.
+
+For example the swift type UInt16 allowes a signed integer between -32768 and 32767.
+Trying to set a number outside this range results in an error:
+
+```swift
+var maximumUInt16 = UInt16.max
+
+//maximumUInt16 now hold 32767 which is the maximum number a UInt16 can hold.
+
+maximumUInt16 += 1 // causes an error
+
+```
+
+Arithmetic operators (+,-,*,/,%) detect and dissallow value **overflow**, to avoid unexpected results while working with numbers that become larger or smaller than the allowed value range of the type that stores them.
+
+You can opt into value overflow by using Swift's overflow operators.
+
+### Operator Terminology
+
+* **Unary Operators**
+Unary operators operate on one target such as -a.
+
+```swift
+let a: Int = 1
+-a
+!a
+```
+
+* **Binary Operators**
+Binary operators operate on two targets such as 2 + 2
+
+* **Ternary Operators**
+Ternalry operators operate on three targets. Like **C** Swift has only one ternary operator, the **ternary conditional operator**
+
+```swift
+let a: Int = 1
+let b: Int = 2
+
+let max: Int = a > b ? a : b
+```
+
+### Assignment Operator
+The assignment operator a = b initializes a with the value of b
+
+```swift
+let yearOfBirth: Int = 1900
+let currentYear: Int = 2025
+let age: Int = yearOfBirth - currentYear
+
+print("Age is \(age)")
+```
 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
