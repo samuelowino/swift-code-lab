@@ -303,7 +303,7 @@ let fiveStepsForward += 5
 let less3 -= 3
 ```
 
-### Compound Operators
+### Comparison Operators
  
  Swift supports the following comparisons:
 
