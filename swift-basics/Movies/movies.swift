@@ -29,3 +29,13 @@ let currentYear = 2022
 let UniversalPicturesAgeInYears = currentYear - universalPicturesOpeningYear
 
 print("Universal Pictures was started in the year \(universalPicturesOpeningYear) and in now on it's \(UniversalPicturesAgeInYears) anniversary")
+
+//=========================
+//  REMAINDER OPERATOR
+//=========================
+
+let totalMovieLength: Int = 120
+let directorsCut: Int = 78
+let deletedScenes: Int = totalMovieLength % directorsCut
+
+print("The origincal feature film length was \(totalMovieLength) minutes, the directors cut is only \(directorsCut) minutes, with a total of \(deletedScenes) minutes worth of deleted scenes. Woof")

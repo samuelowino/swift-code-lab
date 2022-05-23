@@ -279,6 +279,49 @@ let age: Int = yearOfBirth - currentYear
 print("Age is \(age)")
 ```
 
+### Remainder Operator
+The operator **(a % b)** works out how many multiples of b will fit inside a and returns the value left out.
+
+> To Calculate 9 % 4, you workout how many 4s fit in 9
+> You can fit two 4s inside nine and the remainder is 1
+
+![Swift Logo](remainder.png)
+
+```swift
+let remainder = 15 % 2
+```
+
+> However, % is unavailable for floating point numbers
+
+### Compound Assignment Operator
+Swift provides compound assignment operators that combine assignment **(=)** with an operatrion such as **(-)**. e.g **+=**,**-=**,***=**.
+
+```swift
+let j = 5
+let tenMultiplesOfJ *= 10
+let fiveStepsForward += 5
+let less3 -= 3
+```
+
+### Compound Operators
+ 
+ Swift supports the following comparisons:
+
+| Operation     | Comparison Operator   |
+| --------------|-----------------------|
+| Equal to      | ==  ,  a == b         | 
+| Not Equal to  | !=  ,  a!=b           |
+| Greater than  |  >  ,  a>b            |
+| Less than     |  <  ,  a<b            |
+| Greater than or equal to | >= , a >= b|
+| Less than or equal to | <= , a <= b   |
+| Identical to  |  === , objA === objB  |
+| Not Identical to  |  !== , objA !== objB  |
+|               |                       |
+
+
+
+- - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
 > Classes are references types while atructures and enumerations are value types.A value type is a type whose value is copied when it's assigned to a variable or constant. Classes are reference types. Unlike value types, reference types are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy a referebce to the same existing instance is used.ref
