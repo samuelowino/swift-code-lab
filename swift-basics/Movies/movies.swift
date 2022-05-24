@@ -39,3 +39,16 @@ let directorsCut: Int = 78
 let deletedScenes: Int = totalMovieLength % directorsCut
 
 print("The origincal feature film length was \(totalMovieLength) minutes, the directors cut is only \(directorsCut) minutes, with a total of \(deletedScenes) minutes worth of deleted scenes. Woof")
+
+//=========================
+// Nil Coalescing Operator
+//=========================
+
+var numberOfAClassCelbsInMovie: Int? = nil
+let movieTicketSales: Int = 1_000_000
+
+print("Movie ticker sales picked at \(numberOfAClassCelbsInMovie ?? movieTicketSales) sales, because they had \(numberOfAClassCelbsInMovie ?? 0) A class celebs in the movie ")
+
+numberOfAClassCelbsInMovie = 5
+
+print("Movie ticker sales picked at \(numberOfAClassCelbsInMovie ?? movieTicketSales) sales, because they had \(numberOfAClassCelbsInMovie ?? 0) A class celebs in the movie ")
