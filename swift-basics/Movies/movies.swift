@@ -52,3 +52,24 @@ print("Movie ticker sales picked at \(numberOfAClassCelbsInMovie ?? movieTicketS
 numberOfAClassCelbsInMovie = 5
 
 print("Movie ticker sales picked at \(numberOfAClassCelbsInMovie ?? movieTicketSales) sales, because they had \(numberOfAClassCelbsInMovie ?? 0) A class celebs in the movie ")
+
+//====================
+//  RANGE OPERATORS  |
+//====================
+for monthIndex in 0..<12 {
+    print("Month index is \(monthIndex), actual month is \(monthIndex + 1)")
+}
+
+let countDowns: [Int] = [0,1,2,3,4,5] 
+
+for bombCountDown in countDowns[...5] {
+    print("Tick \(bombCountDown) \(bombCountDown == 5 ? "Boom 💣" : "...")")
+}
+
+for bombCountDown in countDowns[..<5] {
+    print("Tick \(bombCountDown) \(bombCountDown == 4 ? "Cut Green...💣" : "...")")
+}
+
+for bombCountDown in countDowns[1...] {
+    print("Tick \(bombCountDown) \(bombCountDown == 4 ? "Cut Red...Boom 💣" : "...")")
+}
