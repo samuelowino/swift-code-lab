@@ -320,6 +320,103 @@ let less3 -= 3
 |               |                       |
 
 
+### Ternary Conditional Operator
+Ternary conditional operator is a special operator with three parts:
+
+**question ? answer1 : answer2**
+
+If question is true, it evaluates answer1 and returns it's value, while if answer is false it evaluates answer2 and returns it's value.
+
+This is shorthand for:
+
+```swift
+if question {
+    answer1
+} else {
+    answer2
+}
+```
+
+```swift
+let result = question ? answer1 : answer2
+```
+
+### Nil-Coalescing Operator | ??
+
+The **nil coalescing operator** **a ?? b**, unwraps an *optional* a if it contains a value, or *returns a default value* b if a is nil. 
+
+**b** must match the type of the value stored in **a**
+
+The coalescing operator is shorthand for:
+
+```swift
+let a: Int? = nil
+let b: Int = 0
+
+let value = a != nil ? a! : b
+```
+
+```swift
+let a: Int? = nil
+let b: Int = 0
+
+let value = a ?? b
+```
+
+### Range Operators
+
+Types of Range Operators
+
+1. **Closed Range Operator**
+2. **Half-Open Range Operator**
+3. **One Sided Ranges**
+
+**Closed Range Operator** - Closed range operator **(a...b)** defines a range of value between **a** and **b** and includes the values of a and b. <u>*a must be greater than b**</u>.
+
+```swift
+for dayOfWeek in 1...7 {
+    print("It's now the \(dayOfWeek)th day of the week")
+}
+```
+
+**Half Open Range** - Half range operaror **(a..<b)** defines a range that runs from a to b but does not include b. The half range operator contains it's first value **a** but not it's second value **b**.
+
+```swift
+for monthIndex in 0..<12 {
+    print("Month index is \(monthIndex), actual month is \(monthIndex + 1)")
+}
+```
+**One-Sided Range** - One sided range operator **([...b], [a...], [...<5])** contains ranges that **continue as far as possible in one direction**.
+
+```swift
+let countDowns: [Int] = [0,1,2,3,4,5] 
+
+for bombCountDown in countDowns[...5] {
+    print("Tick \(bombCountDown) \(bombCountDown == 5 ? "Cut Red...Boom 💣" : "...")")
+}
+
+for bombCountDown in countDowns[..<5] {
+    print("Tick \(bombCountDown) \(bombCountDown == 4 ? "Cut Green...💣" : "...")")
+}
+
+for bombCountDown in countDowns[1...] {
+    print("Tick \(bombCountDown) \(bombCountDown == 4 ? "Cut Red...Boom 💣" : "...")")
+}
+```
+
+### Logical Operators
+
+Logical operators modify and combine Boolean logic values.
+Swift Supports;
+
+* Logical AND - **&&**
+* Logical OR - **||**
+* Logical NOT - **!**
+
+- - -
+
+# Strings and Characters
+
 
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
