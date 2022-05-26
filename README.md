@@ -417,6 +417,42 @@ Swift Supports;
 
 # Strings and Characters
 
+A string is a series of characters such "Hello World".
+String concatenation is accompilished by combining two strings with the + operator. 
+String is **mutable** unless explicitly declared as  a **let** constant.
+
+```swift
+let language: String = "Shwifty" //immutable
+var bestLanguageNow: String = "Shwifty" //mutable
+```
+
+### String literals
+
+String literals are *predefined* strings.
+
+```swift
+let literally: String = "Literaly now.."
+```
+
+### Multiline String literals
+
+A multiline String literal comprises of a series of characters **sorrounded the three double quotation marks**.
+
+```swift
+let messageFromCEO: String = 
+    """
+        Ladies and men, I bring you
+        a seires of ridiculous 
+        cooperate bs
+
+        from our main HQ
+
+        Yours cheerful,
+        The CEO
+    """
+```
+
+
 
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
