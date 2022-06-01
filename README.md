@@ -452,7 +452,64 @@ let messageFromCEO: String =
     """
 ```
 
+### Special Characters in String literals
 
+Special characters can inlcude:
+
+* **"\0"** - null character
+* \\\ - backslash
+* \t - horizontal tab
+* \r - carriage return
+
+### Extended String Delimiters
+
+You can pleace extended string delimiters to include special characters within a string without invoking the special characters' effect.
+
+Sorround the string with number sign **#**. 
+
+```swift
+let shakeSpear = #"Be not afraid of greatness\nWe know what we are, but know not what we may be"#
+
+//prints : Be not afraid of greatness\nWe know what we are, but know not what we may be
+```
+### Initializing an empty string
+
+To create an empty string either initialize a string with empty string literal or create a new String instance
+
+```swift
+var emptyString: String = ""
+var anotherEmptyString: String = String()
+```
+
+### String Mutability
+
+String is immutable if it is assigned to a **let** constant or otherwise mutable if assigned to a **var** variable.
+
+```swift
+let immutableString: String = "This is permanence"
+var mutableString: String = "Nothing is permanent, even this will change"
+
+print("immutableString \(immutableString) :mutableString \(mutableString) ")
+```
+
+### Extended Grapheme Clusters
+
+An extended grapheme cluster is a sequance of one or more unicode scalars that when combined produce a single human readable character.
+
+```swift
+let eAcute: Character = "\u{e9}"
+```
+
+### Counting Characters
+
+Use the String **count** property to restrive the number of characters in a String
+
+```swift
+let alphabet: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let numberOfCharactersInAlphabet: Int = alphabet.count
+
+print("Number of characters in alphabet \(numberOfCharactersInAlphabet)")
+```
 
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
