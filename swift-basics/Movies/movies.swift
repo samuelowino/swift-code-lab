@@ -73,3 +73,53 @@ for bombCountDown in countDowns[..<5] {
 for bombCountDown in countDowns[1...] {
     print("Tick \(bombCountDown) \(bombCountDown == 4 ? "Cut Red...Boom 💣" : "...")")
 }
+
+let somePoem = "The fool doth think he is wise, but \rthe wise man knows himself to be a fool."
+
+print(somePoem)
+
+//===============================
+//  EXTENDED STRING DELIMITERS  |
+//===============================
+
+let bestMovieQuotes = #"Frankly, my dear, I don't give a damn.\nGone with the Wind (1939)"#
+
+print("\(bestMovieQuotes)")
+
+//===============================
+//  INITIALIZING AN EMPTY STRING |
+//===============================
+
+let emptyString: String = ""
+let anotherEmptyString: String = String()
+
+print("The value of emptyString is \(emptyString) and the other empty String is \(anotherEmptyString)")
+
+//======================
+//  String Mutability |
+//======================
+
+let immutableString: String = "This is permanence"
+var mutableString: String = "Nothing is permanent, even this will change"
+
+print("immutableString: \(immutableString)\nmutableString: \(mutableString) ")
+
+//==============================
+//  EXTENDED GRAPHEME CLUSTERS |
+//==============================
+
+let frencheAcute: Character = "\u{e9}"
+let koreanOne: Character = "\u{D55C}"
+
+print("French:\(frencheAcute)")
+print("Korean One: \(koreanOne)")
+
+//========================
+//  COUNTING CHARACTERS |
+//========================
+
+let alphabet: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+let numberOfCharactersInAlphabet: Int = alphabet.count
+
+print("Number of characters in alphabet is \(numberOfCharactersInAlphabet)")
+
