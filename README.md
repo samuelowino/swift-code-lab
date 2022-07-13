@@ -502,13 +502,61 @@ let eAcute: Character = "\u{e9}"
 
 ### Counting Characters
 
-Use the String **count** property to restrive the number of characters in a String
+Use the String **count** property to retrieve the number of characters in a String
 
 ```swift
 let alphabet: String = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 let numberOfCharactersInAlphabet: Int = alphabet.count
 
 print("Number of characters in alphabet \(numberOfCharactersInAlphabet)")
+```
+
+### Accessing and Modifying a String
+
+Modify a String by using it's **methods and properties** or by using the **subscript syntax**.
+
+Swit Strings can't be indexed by integer value because each character in the String holds different memory size.
+
+Use the **startIndex** to access the first character in the String and **endIndex** to access the last character in the String.
+
+> The **endIndex** is the position after the last character in the String, therefore the **endIndex is not a valid argument to the String's subscript** and will result in a ***Fatal error*: String index is out of bounds**
+
+```swift
+let title: String = "The Batman"
+let startChar: Character = title[title.startIndex]
+//let lastChar: Character = title[title.endIndex] error index out of bounds
+
+print("Start char: \(startChar), End Char: \(lastChar)")
+```
+
+> If the String is empty, the start and end index are the same.
+
+```swift
+let emptyWords = ""
+let start: Character = emptyWords[emptyWords.startIndex]
+let end: Character = emptyWords[emptyWords.endIndex]
+```
+
+You can access the indices before and after a particular index using the **index(before:)** and **index(after:)** methods of a String.
+
+```swift
+let easy: String = "ABC"
+var mid: Character = easy.index(before: easy.endIndex)
+
+print("mid ABC is ==> \(easy[mid])")
+
+mid = easy.index(after: easy.startIndex)
+
+print("mid is still ==> \(easy[mid])")
+```
+
+To access an index further away from the current index, you can use: **index(currentIndex: offsetBy:)** method.
+
+```swift
+let joy: String = "happy😁";
+let emoji: Character = joy[joy.index(joy.startIndex, offsetBy:5)]
+
+print("Joy emoji is ==> \(emoji)")
 ```
 
 - - - 

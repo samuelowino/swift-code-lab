@@ -208,3 +208,8 @@ typealias Localisation = String
 let astronaut: Localisation = "Buzz Aldrin"
 
 print("\(astronaut)")
+
+//===========================
+//  String Index, Subscript
+//===========================
+
