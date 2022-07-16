@@ -35,3 +35,48 @@ let joy: String = "happy😁";
 let emoji: Character = joy[joy.index(joy.startIndex, offsetBy:5)]
 
 print("Joy emoji is ==> \(emoji)")
+
+//=================================================================
+
+var why = "why"
+why.insert("?", at: why.endIndex) // why ?
+print(why)
+
+//=================================================================
+
+var warn = "You have been warned "
+var details = " do not enter, private property"
+warn.insert(contentsOf: details, at: warn.index(before: warn.endIndex))
+
+print(warn)
+
+//=================================================================
+
+var hello = "Hello!"
+hello.remove(at: hello.index(before: hello.endIndex))
+
+print(hello)
+
+//=================================================================
+
+var helloWorld = "hello world"
+
+let range = hello.index(helloWorld.endIndex, offsetBy: -5)..<helloWorld.endIndex
+
+helloWorld.removeSubrange(range)
+
+print(helloWorld)
+
+//=================================================================
+
+var greeting = "Hi mary"
+
+if greeting.hasPrefix("Hi"){
+    print(greeting)
+}
+
+var ending = "This is the end"
+
+if ending.hasSuffix("end"){
+    print(ending)
+}

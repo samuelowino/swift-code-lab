@@ -559,6 +559,81 @@ let emoji: Character = joy[joy.index(joy.startIndex, offsetBy:5)]
 print("Joy emoji is ==> \(emoji)")
 ```
 
+## Inserting and removing from a String
+
+* **Insert a single character**
+
+To insert a single character at a specified index of the String use **insert(character, at: index)**
+
+```swift
+var why = "why"
+why.insert("?", at: why.endIndex) // why ?
+```
+
+* **Insert contents of another String**
+
+To insert the contents of another String use the **insert(contentsOf, at)**
+
+```swift
+var warn = "You have been warned "
+var details = " do not enter, private property"
+warn.insert(contentsOf: details, at: warn.index(before: warn.endIndex))
+// You have been warned do not enter, private property
+```
+
+* **Remove a single character from String**
+
+Use the **remove(at: Index)** to remove a single character from String
+
+```swift
+var hello = "Hello!"
+hello.remove(at: hello.index(before: hello.endIndex))
+```
+
+* **Remove a range of characters(Substring) from a String**
+
+To remove a substring from a specified range, use the **removeSubrange(range)**
+
+```swift
+var helloWorld = "hello world"
+
+let range = hello.index(helloWorld.endIndex, offsetBy: -5)..<helloWorld.endIndex
+
+helloWorld.removeSubrange(range)
+
+// hello
+```
+
+# String and Characters Equality
+
+You can check equality of strings and characters using the operator **==** and not equal operatior **!=**
+
+```swift
+var englishGreeting = "hello"
+var spanishGreeting = "hola"
+
+if englishGreeting == spanishGreeting {
+    print("English is same as spanish")
+}
+```
+**hasPrefix** and **hasSuffix**
+
+Check whether a String has a particular string prefix or suffix.
+
+```swift
+var greeting = "Hi mary"
+
+if gretting.hasPrefix("Hi"){
+    print(greeting)
+}
+
+var ending = "This is the end"
+
+if ending.hasSuffix("end"){
+    print(ending)
+}
+```
+
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
