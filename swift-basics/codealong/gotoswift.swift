@@ -1,5 +1,7 @@
 // Swift-5 New Features
 
+import Foundation
+
 // SE-0255 Omit Return on single expression functions
 // 🔗https://github.com/apple/swift-evolution/blob/main/proposals/0025-scoped-access-level.md
 
@@ -38,4 +40,24 @@ printResultsV3("Joan", 22) //Hi, so "in this competion" Joan scored only 22
 
 //SE-0228 Expressible String Interpolation
 // 🔗https://github.com/apple/swift-evolution/blob/main/proposals/0228-fix-expressiblebystringinterpolation.md
+
+struct Rocket {
+    var name: String
+    var mfcDate: Date
+
+    init(_ name: String, _ mfcDate: Date) {
+        self.name = name
+        self.mfcDate = mfcDate
+    }
+}
+
+extension String.StringInterpolation {
+    mutating func appendInterpolation(_ rocket: Rocket){
+        appendInterpolation("Name: ==> \(rocket.name)\nManufacture Date: ==> \(rocket.mfcDate)")
+    }
+}
+
+let saturnV: Rocket = Rocket("Saturn V", Date())
+
+print("\(saturnV)")
 
