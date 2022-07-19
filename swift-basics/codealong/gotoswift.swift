@@ -62,6 +62,7 @@ let saturnV: Rocket = Rocket("Saturn V", Date())
 print("\(saturnV)")
 
 // SE-0249 Key Path Expressions as Functions
+// 🔗https://github.com/apple/swift-evolution/blob/main/proposals/0249-key-path-literal-function-expressions.md
 
 struct User {
     let email: String
