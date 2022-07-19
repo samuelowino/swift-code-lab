@@ -96,3 +96,26 @@ print("\(userEmails)") //["joel@app.com", "marck@app.com", "denise@app.com", "ma
 let adminLevels: [Bool] = users.map(\.admin)
 
 print("\(adminLevels)") //[false, false, false, true]
+
+// SE-0235 Added Result to standard Library
+// 🔗 https://github.com/apple/swift-evolution/blob/main/proposals/0235-add-result.md
+
+enum InvalidInputError: Error {
+    case negativeNumber
+    case mismatchedInput
+}
+
+func doubled(_ input: Int) -> Result<Int, InvalidInputError> {
+    guard input > 0 else { return .failure(.negativeNumber)}
+
+    return .success(input)
+}
+
+let doubledResult: Result = doubled(10)
+
+switch doubledResult {
+    case .failure:
+        print("Failure \(doubledResult)")
+    case .success:
+        print("Success \(doubledResult)")
+}
