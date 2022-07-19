@@ -61,3 +61,37 @@ let saturnV: Rocket = Rocket("Saturn V", Date())
 
 print("\(saturnV)")
 
+// SE-0249 Key Path Expressions as Functions
+
+struct User {
+    let email: String
+    let admin: Bool
+}
+
+var users: [User] = []
+
+users.append(User(email: "joel@app.com", admin: false))
+users.append(User(email: "marck@app.com", admin: false))
+users.append(User(email: "denise@app.com",admin: false))
+users.append(User(email: "magnito@app.com",admin: true))
+
+//Using map()
+//Returns an array containing the results of the mapping given the closure over
+//the sequence's elements
+let emails: [String] = users.map { $0.email}
+
+print("\(emails)") //["joel@app.com", "marck@app.com", "denise@app.com", "magnito@app.com"]
+
+let adminLevel: [Bool] = users.map { $0.admin}
+
+print("\(adminLevel)") //[false, false, false, true]
+
+//Using Keypath
+
+let userEmails: [String] = users.map(\.email)
+
+print("\(userEmails)") //["joel@app.com", "marck@app.com", "denise@app.com", "magnito@app.com"]
+
+let adminLevels: [Bool] = users.map(\.admin)
+
+print("\(adminLevels)") //[false, false, false, true]
