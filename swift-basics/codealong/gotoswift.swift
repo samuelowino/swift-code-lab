@@ -69,12 +69,10 @@ struct User {
     let admin: Bool
 }
 
-var users: [User] = []
-
-users.append(User(email: "joel@app.com", admin: false))
-users.append(User(email: "marck@app.com", admin: false))
-users.append(User(email: "denise@app.com",admin: false))
-users.append(User(email: "magnito@app.com",admin: true))
+let users: [User] = [User(email: "joel@app.com", admin: false), 
+                    User(email: "marck@app.com", admin: false), 
+                    User(email: "denise@app.com",admin: false),
+                    User(email: "magnito@app.com",admin: true)]
 
 //Using map()
 //Returns an array containing the results of the mapping given the closure over

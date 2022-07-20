@@ -635,6 +635,202 @@ if ending.hasSuffix("end"){
 ```
 
 - - - 
+
+# Swift Collection Types
+
+Swift provides three collection types:
+
+* **Arrays**
+* **Sets**
+* **Dictionaries**
+
+![Swift Collection Types](CollectionTypes_intro_2x.png)
+
+> **Arrays** are ordered collection of values
+
+> **Dictionaries** are an unordered collection of key-value pairs
+
+> **Sets** are an unordered collection of unique values. 
+
+Swift's collections are type safe.
+
+## Mutability of Collections
+
+If you assign a collection to a variable, it means the collection can be changed. Elements can be added and removed from the collection.
+
+If you assign a collection to a constant, it means the collection cannot be mutated. Elements cannot be added or removed from the collection.
+
+## Arrays
+
+Arrays store the same type of elements in an unordered list. The same value can appear in an array multiple times at different time.
+
+## Creating an empty array
+
+```swift
+let emptyArray: [Int] = [] //creates an empty array
+
+print("empty array contains \(emptyArray.count) elements") 
+//empty array contains 0 elements
+```
+
+## Creating an array with default values
+Swift's Array type also provides an initializer which creates an array of a particular size with all of it's elements initialized to a particular default value.
+
+```swift
+var colors = Array(repeating: "red", count: 5)
+
+print("default colors: \(colors)")
+
+//default colors: ["red", "red", "red", "red", "red"]
+```
+
+## Adding Two Arrays Together
+You can create a new array by adding (+) two ararys with *compatible types*.
+
+```swift
+let partAVowels: [Character] = Array(repeating: "e", count: 3)
+let partBVowels: [Character] = Array(repeating: "a", count: 4)
+
+let combined: [Character] = partAVowels + partBVowels
+
+print("Part A \(partAVowels):\nPart B \(partBVowels):\nCombined \(combined)")
+//Part A ["e", "e", "e"]:
+//Part B ["a", "a", "a", "a"]:
+//Combined ["e", "e", "e", "a", "a", "a", "a"]
+```
+
+## Creating an array with array literals
+
+```swift
+var shopping: [String] = ["Apples", "Oranges","Banana"]
+```
+
+## Accessing and Modifying an Array
+
+You can access and modify an array using either it's **methods and properties** or by using **subscript syntax**
+
+> Swift arrays are always zero indexed
+
+Find the the number of items in an array using the *read-only* **count** property
+
+
+```swift
+let phones = ["iPhone","Android","Blackberry"]
+let phonesCount: Int = phones.count
+print("Number of phones ==> \(phonesCount)")
+//Number of phones ==> 3
+```
+
+Use the **isEmpty** property as a shorthand to check whether the count property is zero
+
+```swift
+var isPhoneDrawerEmpty: Bool = false
+
+var phones = ["iPhone","Android","Blackberry"]
+
+isPhoneDrawerEmpty = phones.isEmpty
+
+print("Phone drawer isEmpty ==> \(isPhoneDrawerEmpty)")
+
+print("*Removes all phones from drawer*")
+phones = []
+
+isPhoneDrawerEmpty = phones.isEmpty
+
+print("Phone drawer isEmpty ==> \(isPhoneDrawerEmpty)")
+
+//Phone drawer isEmpty ==> false
+//*Removes all phones from drawer*
+//Phone drawer isEmpty ==> true
+```
+
+You can add a new item at the end of the array by calling the array's **append** method.
+
+```swift
+var phones = ["iPhone","Android","Blackberry"]
+
+phones.append("Nothing Phone") 
+
+print(\(phones)) // ["iPhone", "Android", "Blackberry", "Nothing Phone"]
+```
+
+Alternatively append arrays with the addition assignment (+=)
+
+```swift
+var phones = ["iPhone","Android","Blackberry"]
+var iPhones = ["iPhone 4","iPhone 7","iPhone 13 Pro"]
+var androids = ["Pixel","Nexus","Samsung","Oppo Reno"]
+
+phones += iPhones
+phones += androids
+
+print("iPhones ==> \(iPhones)")
+print("androids ==> \(androids)")
+print("phones ==> \(phones)")
+
+//iPhones ==> ["iPhone 4", "iPhone 7", "iPhone 13 Pro"]
+//androids ==> ["Pixel", "Nexus", "Samsung", "Oppo Reno"]
+//phones ==> ["iPhone", "Android", "Blackberry", "iPhone 4", "iPhone 7", "iPhone 13 Pro", "Pixel", "Nexus", "Samsung", "Oppo Reno"]
+
+```
+
+Retrieve an element from an array using the subscript syntax
+
+```swift
+var phones = ["iPhone","Android","Blackberry"]
+let firstPhone = phones[0] //iPhone
+let lastPhone = phones[phones.count - 1] //Blackberry
+
+```
+
+You can use subscript to change a particular value at a given index.
+
+```swift
+var phones = ["iPhone","Android","Blackberry"]
+phones[1] = "Android 12"
+
+print("Updated phones \(phones)")
+//Updated phones ["iPhone", "Android 12", "Blackberry"]
+```
+
+To insert an element at a specific index use the **insert(_, at:)** method.
+
+```swift
+var phones = ["iPhone","Android","Blackberry"]
+phones.insert("Nokia Lumia", at: 1)
+
+print("Updated phones \(phones)")
+//Updated phones ["iPhone", "Nokia Lumia", "Android", "Blackberry"]
+```
+
+You can also remove an element at a specific index in the array using the **remove(at: index)** method
+
+```swift
+var phones = ["iPhone","Android","Blackberry"]
+phones.remove(at: 0)
+
+print("Updated phones \(phones)")
+//Updated phones ["Android", "Blackberry"]
+
+```
+
+## Iterating Over an Array
+
+You can iterate over an array using the **for-in-loop**
+
+```swift
+var phones = ["iPhone","Android","Blackberry"]
+
+for phone in phones {
+    print("Phone is: \(phone)")
+}
+
+//Phone is: iPhone
+//Phone is: Android
+//Phone is: Blackberry
+```
+
+- - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
 > Classes are references types while atructures and enumerations are value types.A value type is a type whose value is copied when it's assigned to a variable or constant. Classes are reference types. Unlike value types, reference types are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy a referebce to the same existing instance is used.ref
