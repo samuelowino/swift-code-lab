@@ -829,6 +829,66 @@ for phone in phones {
 //Phone is: Android
 //Phone is: Blackberry
 ```
+# Sets
+
+A set stores a distinct collection with no ordering. Elements in a set are unique.
+
+## Hash Values for Set Types
+
+A type **must be hashable** in order for it to be stored in a set- that is, the type must provide a way to compute a **hash value** for itself. 
+
+A hash value is an int value that's is the same for all objects. That is if **a == b** that means, the hash value of a is equal to the hash value of b.
+
+## Hashable
+A type that can be hashed into a hasher to produce an integer hash value.
+
+You can use any value that conforms to the Hashable protocol in a **set or dictionary key**. Many types in the standard library conform to Hashable: **Strings, Integers, floating-point and bool values**.
+
+Your custom type can be hashable as well. When you define an enumeration without associated values, it becomes hashable. You can also addd hashable conformance to other types by implementing the **hash(into)** method.
+
+## Conforming to the hashable protocol
+
+The Hashable protocol inherits from the **Equatable** protocol so you must conform to that as well.
+
+```swift
+struct Baby {
+    let name: String
+    let ageDays: Int
+    let birthHour: Int
+    let birthMin: Int
+    let mom: Strin
+}
+
+extension Baby: Hashable {
+    static func == (lhs: Baby, rhs: Baby) -> Bool {
+        return lhs.name == rhs.name && lhs.mom == rhs.mom
+    }
+
+    func hash(into hasher: inout Hasher){
+        combine(name)
+        combine(mom)
+    }
+}
+
+let babyMike = Baby()
+babyMike.name = "Mikey"
+babyMike.ageDays = 4
+babyMike.birthHour = 8
+babyMike.birthMin = 23
+babyMike.mom = "Joan Waruguru"
+
+let lostBaby = Baby()
+babyMike.name = "Mikey"
+babyMike.mom = "Joan Waruguru"
+
+//Search for baby
+if lostBaby == babyMike {
+    print("Found lost baby \(lostBaby), mum is \(lostBaby.mum)")
+} else {
+    print("Baby is still lost, mum not found")
+}
+
+```
 
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)

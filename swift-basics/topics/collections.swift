@@ -79,3 +79,35 @@ phones = ["iPhone","Android","Blackberry"]
 for phone in phones {
     print("Phone is: \(phone)")
 }
+
+// =============================================
+
+struct Baby {
+    let name: String
+    let ageDays: Int?
+    let birthHour: Int?
+    let birthMin: Int?
+    let mom: String
+}
+
+extension Baby: Hashable {
+    static func == (lhs: Baby, rhs: Baby) -> Bool {
+        return lhs.name == rhs.name && lhs.mom == rhs.mom
+    }
+
+    func hash(into hasher: inout Hasher){
+        hasher.combine(name)
+        hasher.combine(mom)
+    }
+}
+
+let babyMike = Baby(name: "Mikey", ageDays: 4, birthHour: 8, birthMin: 23, mom: "Joan Waruguru")
+
+let lostBaby = Baby(name: "Mikey", ageDays: nil, birthHour: nil, birthMin: nil, mom: "Joan Waruguru")
+
+//Search for baby
+if lostBaby == babyMike {
+    print("Found lost baby \(lostBaby), mum is \(lostBaby.mom)")
+} else {
+    print("Baby is still lost, mum not found")
+}
