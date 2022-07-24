@@ -111,3 +111,72 @@ if lostBaby == babyMike {
 } else {
     print("Baby is still lost, mum not found")
 }
+
+//==========================SET==================================
+
+var letters = Set<Character>()
+
+print("letters \(letters.count)")
+
+let colorCodes: Set<String> = ["Red","Orange","Green", "Blue","White"]
+
+print("colors ==> \(colorCodes)")
+
+let colorCodec: Set = ["Red","Orange","Green", "Blue","White"]
+
+print("color codec ==> \(colorCodec)")
+
+var apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+
+print("The number of apollo missions is \(apolloMissions.count)")
+
+if apolloMissions.isEmpty {
+    print("Apollo Missions? Which Apollo Missions ?")
+} else {
+    print("Oh a apollo missions? Yes apollo missions")
+}
+
+print("Current list of missions ==> \(apolloMissions)")
+
+apolloMissions.insert("AS-201")
+apolloMissions.insert("AS-203")
+
+print("Added two more missions into the punch card ::AS-201:: ::AS-203::")
+
+print("Updated list of missions ==> \(apolloMissions)")
+
+apolloMissions = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+
+print("removing missions-AS-101...")
+
+apolloMissions.remove("AS-101")
+
+print("updated missions list is \(apolloMissions) | count is \(apolloMissions.count)")
+
+print("removing all missions from record... please wait")
+
+apolloMissions.removeAll()
+
+print("updated missions list is \(apolloMissions) | count is \(apolloMissions.count)")
+
+apolloMissions = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+
+if apolloMissions.contains("SA-3") {
+    print("SA-3 is part and parcel of the apollo missions")
+} else {
+    print("SA-3 is not an apollo missions... anymore")
+}
+
+for mission in apolloMissions {
+    print("NASA Mission ==> \(mission)")
+}
+
+let sortedMissionsArray = apolloMissions.sorted()
+
+for mission in apolloMissions {
+    print("Before Sorting: apolloMission \(mission)")
+}
+
+for sortedMission in sortedMissionsArray{
+    print("After Sorting: apolloMissions \(sortedMission)")
+}

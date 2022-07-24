@@ -889,6 +889,176 @@ if lostBaby == babyMike {
 }
 
 ```
+## Set Type Syntax
+The type of a Set in Swift is written as Set<#Element> where Element is the type that the set is allowed to store.
+
+## Create and initialize an Empty Set
+
+```swift
+var letters = Set<Character>
+```
+
+## Creating a Set with an Array literal
+
+```swift
+let colors: Set<String> = ["Red","Orange","Green", "Blue","White"]
+
+print("colors ==> \(colors)")
+//["Red", "Blue", "White", "Orange", "Green"]
+```
+
+If you are initialiazing a Set with an array literal that contains only one type, Swift will infer the type.
+
+```swift
+let colors: Set = ["Red","Orange","Green", "Blue","White"]
+//`Set<String>` becomes just `Set` if [array] has contains elements of the same type.
+
+print("colors ==> \(colors)")
+//["Red", "Blue", "White", "Orange", "Green"]
+```
+
+
+## Accessing and MOdifying a Set
+You access and modify a Set using it's methods and properties. (No Subscript)
+
+Find the number of items in a Set 
+
+```swift
+let apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+
+print("The number of apollo missions is  \(apolloMissions.count)")
+
+//The number of apollo missions is 6
+```
+
+Check is the Set's count property is zero with **isEmpty**
+
+```swift
+let apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+
+if apolloMissions.isEmpty {
+    print("Apollo Missions? Which Apollo Missions ?")
+} else {
+    print("Oh a apollo missions? Yes apollo missions")
+}
+
+
+//Oh a apollo missions? Yes apollo missions
+```
+
+Add a new item into a Set using **insert()**
+
+```swift
+var apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+
+print("Current list of missions ==> \(apolloMissions)")
+
+apolloMissions.insert("AS-201")
+apolloMissions.insert("AS-203")
+
+print("Added two more missions into the punch card ::AS-201:: ::AS-203::")
+
+print("Updated list of missions ==> \(apolloMissions)")
+
+//Current list of missions ==> ["SA-5", "AS-101", "SA-1", "SA-2", "SA-3", "SA-4"]
+
+//Added two more missions into the punch card ::AS-201:: ::AS-203::
+
+//Updated list of missions ==> ["SA-4", "SA-2", "AS-203", "AS-201", "SA-1", "AS-101", "SA-5", "SA-3"]
+
+```
+
+You can remove elements from the set using either **remove(element)** or **removeAll()**. 
+
+```swift
+var apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+
+print("removing missions-AS-101...")
+
+apolloMissions.remove("AS-101")
+
+print("updated missions list is \(apolloMissions) | count is \(apolloMissions.count)")
+
+print("removing all missions from record... please wait")
+
+apolloMissions.removeAll()
+
+print("updated missions list is \(apolloMissions) | count is \(apolloMissions.count)")
+
+//removing missions-AS-101...
+//updated missions list is ["SA-4", "SA-3", "SA-5", "SA-1", "SA-2"] | count is 5
+//removing all missions from record... please wait
+//updated missions list is [] | count is 0
+```
+
+Use contains to check whether a Set contains a particular element
+
+```swift
+let apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+if apolloMissions.contains("SA-3") {
+    print("SA-3 is part and parcel of the apollo missions")
+} else {
+    print("SA-3 is not an apollo missions... anymore")
+}
+
+//SA-3 is part and parcel of the apollo missions
+```
+
+## Iterating over a Set
+
+```swift 
+let apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+for mission in apolloMissions {
+    print("NASA Mission ==> \(mission)")
+}
+
+/**
+NASA Mission ==> SA-4
+NASA Mission ==> SA-2
+NASA Mission ==> SA-5
+NASA Mission ==> AS-101
+NASA Mission ==> SA-1
+NASA Mission ==> SA-3
+**/
+
+```
+
+Obtain a **sorted array of elements** from a Set with **sorted()
+
+```swift 
+let apolloMissions: Set = ["SA-1","SA-2","SA-3","SA-4","SA-5","AS-101"]
+let sortedMissionsArray = apolloMissions.sorted()
+
+for mission in apolloMissions {
+    print("Before Sorting: apolloMission \(mission)")
+}
+
+/**
+    Before Sorting: apolloMission AS-101
+    Before Sorting: apolloMission SA-1
+    Before Sorting: apolloMission SA-4
+    Before Sorting: apolloMission SA-2
+    Before Sorting: apolloMission SA-3
+    Before Sorting: apolloMission SA-5
+**/
+
+for sortedMission in sortedMissionsArray{
+    print("After Sorting: apolloMissions \(sortedMission)")
+}
+
+/**
+    After Sorting: apolloMissions AS-101
+    After Sorting: apolloMissions SA-1
+    After Sorting: apolloMissions SA-2
+    After Sorting: apolloMissions SA-3
+    After Sorting: apolloMissions SA-4
+    After Sorting: apolloMissions SA-5
+**/
+```
+
+- - -
+
+# Dictionaries
 
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
