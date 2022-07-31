@@ -180,3 +180,53 @@ for mission in apolloMissions {
 for sortedMission in sortedMissionsArray{
     print("After Sorting: apolloMissions \(sortedMission)")
 }
+
+var marsMissions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1960]
+
+print(marsMissions)
+
+
+print("There have been \(marsMissions.count) Mars missions")
+
+if marsMissions.isEmpty {
+    print("We have zero Mars missions")
+} else {
+    print("We have \(marsMissions.count) Mars missions")
+}
+
+marsMissions["Mars 2020 Perseverance Rover"] = 2020
+
+print("New list of missions \(marsMissions)")
+
+marsMissions.updateValue(2020, forKey: "Mars Perseverance Rover")
+
+print("Missions \(marsMissions)")
+
+
+marsMissions["1M No.1"] = nil
+
+if let _1MNo1Mission = marsMissions["1M No.1"] {
+    print("Found the 1M No.1 mission as \(_1MNo1Mission)")
+} else {
+    print("1M No.1 does not exist, someone must have removed it")
+}
+
+if let removedMission = marsMissions.removeValue(forKey: "1M No.2"){
+    print("Removed mission \(removedMission) from list")
+} else {
+    print("Could not remove mission key does not exist")
+}
+
+var missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1961]
+
+for (mission, year) in missions {
+    print("Missions \(mission) : Year \(year)")
+}
+
+for mission in missions.keys {
+    print("Missions \(mission)")
+}
+
+for year in missions.values {
+    print("Mission Year \(year)")
+}

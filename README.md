@@ -1060,6 +1060,137 @@ for sortedMission in sortedMissionsArray{
 
 # Dictionaries
 
+A dictionary stores associations between keys and their respective value. Dictionaries do not have defined odering.
+
+A dictionary key must conform to the **Hashable protocol**
+
+## Create an empty dictionary
+
+```swift
+var marsMissions: [String : Int] = [:]
+```
+
+## Create a dictionary with a dictionary literal
+
+```swift
+let marsMissions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1960]
+
+print(marsMissions)
+```
+
+## Find the number of items in a dictionary
+
+```swift
+let missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1960]
+
+print("There have been \(missions.count) Mars missions")
+
+//There have been 2 Mars missions
+```
+
+## Check whether count property is 0 with isEmpty property
+
+```swift
+let missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1960]
+
+if missions.isEmpty {
+    print("We have zero Mars missions")
+} else {
+    print("We have \(missions.count) Mars missions")
+}
+
+//We have 2 Mars missions
+```
+
+## Add values to a Dictionary with Subscript syntax
+
+```swift
+var missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1960]
+
+missions["Mars 2020 Perseverance Rover"] = 2020
+
+print("New list of missions \(missions)")
+//New list of missions ["1M No.2": 1960, "1M No.1": 1960, "Mars 2020 Perseverance Rover": 2020]
+```
+
+## Use Dictionary's updateValue(_, forKey _) to update/insert new keys
+
+```swift
+var missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1960]
+
+missions.updateValue(2020, forKey: "Mars Perseverance Rover")
+
+print("Missions \(missions)")
+//Missions ["Mars Perseverance Rover": 2020, "1M No.1": 1960, "1M No.2": 1960]
+```
+
+## Remove a value from a dictionary by assigning nil to the key
+
+```swift
+var missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1960]
+
+missions["1M No.1"] = nil
+
+if let _1MNo1Mission = missions["1M No.1"] {
+    print("Found the 1M No.1 mission as \(_1MNo1Mission)")
+} else {
+    print("1M No.1 does not exist, someone must have removed it")
+}
+
+//1M No.1 does not exist, someone must have removed it
+```
+
+## Alternatively you can use removeValue(forKey _)
+
+This method returns the removed value or nil of the value did not exist already.
+
+```swift
+var missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1961]
+
+if let removedMission = missions.removeValue(forKey: "1M No.2"){
+    print("Removed mission \(removedMission) from list")
+} else {
+    print("Could not remove mission key does not exist")
+}
+//Removed mission 1961 from list
+```
+
+## Iterating over a map 
+
+You can use the **for..in** loop to iterate over a dictionary. Each item in the Dictionary is returned a **(key, value) tuple**.
+
+```swift
+var missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1961]
+
+for (mission, year) in missions {
+    print("Missions \(mission) : Year \(year)")
+}
+
+
+//Missions 1M No.1 : Year 1960
+//Missions 1M No.2 : Year 1961
+ ```
+
+ You can also obtain an iterable of a dictionary by calling it's keys and values methods.
+
+ ```swift
+var missions: [String : Int] = ["1M No.1" : 1960, "1M No.2" : 1961]
+
+for mission in missions.keys {
+    print("Missions \(missions)")
+}
+
+for year in missions.values {
+    print("Mission Year \(year)")
+}
+
+/**
+    Missions 1M No.1
+    Missions 1M No.2
+    Mission Year 1960
+    Mission Year 1961
+**/
+ ```
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
