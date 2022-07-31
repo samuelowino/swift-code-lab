@@ -1191,6 +1191,77 @@ for year in missions.values {
     Mission Year 1961
 **/
  ```
+
+ - - -
+
+ # Control Flow
+
+ Swift provides a variety of control flow statements:
+
+ * **if**
+ * **Switch**
+ * **guard**
+ * **break and contrinue**
+ * **for...in**
+ * **where...clause**
+ * **fallthrough**
+
+ and more.
+
+# For-In Loops
+
+## Iterate over items in an array
+
+```swift
+let studios: [String] = ["DC Comics","Marvel","Warner Bros"]
+
+for studio in studios {
+    print("Movie studio \(studio)")
+}
+//Movie studio DC Comics
+//Movie studio Marvel
+//Movie studio Warner Bros
+```
+
+## Iterate over a dictionary to obtain it's key value pairs as tuples
+
+```swift
+let movies: [String : Int] = ["Winter Soldier" : 2014, "Iron Man" : 2008, "Thor" : 2011, "The Avengers" : 2012]
+
+for (movie, releaseYear) in movies {
+    print("Marvel Movie \(movie), Release: \(releaseYear)")
+}
+
+//Marvel Movie Thor, Release: 2011
+//Marvel Movie The Avengers, Release: 2012
+//Marvel Movie Winter Soldier, Release: 2014
+//Marvel Movie Iron Man, Release: 2008
+
+```
+
+## You can use for-in loops to iterate over aranges
+
+```swift
+for index in 1...5 {
+    print("ETA to Lift off \(index)")
+}
+
+//==-------------------==
+//ETA to Lift off 1
+//ETA to Lift off 2
+//ETA to Lift off 3
+//ETA to Lift off 4
+//ETA to Lift off 5
+//==-------------------==
+
+for spot in 1..<4 {
+    print("Spot \(spot)")
+}
+//Spot 1
+//Spot 2
+//Spot 3
+```
+
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
