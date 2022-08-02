@@ -1479,6 +1479,34 @@ answerDoor(ring: false)
 //Answer the door!
 //It's all in your head
 ```
+
+- - -
+
+# Functions
+
+## Variadic Parameters
+
+```swift
+func printNumbers(numbers: Int...){
+    for number in numbers {
+        print("Number \(number)")
+    }
+}
+
+printNumbers(numbers: 4,3,5,2,6,4,7)
+
+/**
+    Number 4
+    Number 3
+    Number 5
+    Number 2
+    Number 6
+    Number 4
+    Number 7
+**/
+```
+
+# In-Out Parameters
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
