@@ -1262,6 +1262,223 @@ for spot in 1..<4 {
 //Spot 3
 ```
 
+# While Loop
+A while loop performs a set of statements until and condition is false.
+
+Swift provides two types of while loops:
+
+* **while** - Evaluates it's condition at the start of each pass through loop.
+* **repeat-while** - evaluates the condition at the end of each pass through loop
+
+```swift
+var index: Int = 0
+
+while(index < 10) {
+    print("Index -> \(index)")
+    index += 1
+}
+//Index -> 0
+//Index -> 1
+//Index -> 2
+//Index -> 3
+//Index -> 4
+//Index -> 5
+//Index -> 6
+//Index -> 7
+//Index -> 8
+//Index -> 9
+```
+
+## repeat-while loop
+
+```swift
+var rank: Int = 10
+
+repeat {
+    print("Rank : \(rank)")
+    rank -= 1
+} while(rank > 0)
+
+//Rank : 10
+//Rank : 9
+//Rank : 8
+//Rank : 7
+//Rank : 6
+//Rank : 5
+//Rank : 4
+//Rank : 3
+//Rank : 2
+//Rank : 1
+```
+
+- - -
+
+# Conditional Statements
+
+Swift provides two facilities for managing conditional statements:
+
+* **if**
+* **switch**
+
+## If
+
+```swift
+let condition: Bool = false
+
+if condition {
+    print("condition passed")
+} else if condition == false {
+    print("Condition failed")
+} else {
+    print("very strange")
+}
+
+//Condition failed
+```
+
+## Switch
+
+```swift
+enum SuperHeroe: String, CaseIterable {
+    case OMNI_MAN = "Omni Man"
+    case INVINCIBLE = "Invincible"
+    case IMMORTAL = "Immortal"
+    case ROBOT = "Robot"
+} 
+
+let heroe: SuperHeroe = .OMNI_MAN
+
+switch heroe {
+    case .OMNI_MAN:
+        print("\(heroe.rawValue) is evil")
+    case .INVINCIBLE:
+        print("\(heroe.rawValue) is confused")
+    case .IMMORTAL:
+        print("\(heroe.rawValue) is dead")
+    case .ROBOT:
+        print("\(heroe.rawValue) is weird")
+}
+
+//Omni Man is evil
+```
+
+Swift's switch statements don't fallthrough by difault.
+
+## Compound case: Match two case results in one case block
+
+```swift 
+num SuperHeroe: String, CaseIterable {
+    case OMNI_MAN = "Omni Man"
+    case INVINCIBLE = "Invincible"
+    case IMMORTAL = "Immortal"
+    case ROBOT = "Robot"
+} 
+
+let heroe: SuperHeroe = .ROBOT
+
+switch heroe {
+    case .OMNI_MAN, .ROBOT:
+        print("\(heroe.rawValue) is evil")
+    case .INVINCIBLE:
+        print("\(heroe.rawValue) is confused")
+    case .IMMORTAL:
+        print("\(heroe.rawValue) is dead")
+}
+
+//Robot is evil
+```
+
+## Control Transfer Statements
+Control transfer statements change the order in which your statements are executed.
+
+Swift has several control transfer statements
+
+* **continue**
+* **break**
+* **fallthrough**
+* **return**
+* **throw**
+
+## continue
+
+**continue** tells the loop to stop what it's doing and launch nother iteration at the begining.
+
+```swift
+let indices: [Int] = [1,2,4,5,7,8,11,13,12]
+
+for index in indices {
+    if index % 2 == 0 {
+        continue
+    }
+
+    print("Uneven number: \(index)")
+}
+
+//Uneven number: 1
+//Uneven number: 5
+//Uneven number: 7
+//Uneven number: 11
+//Uneven number: 13
+```
+
+## Break
+
+The break statement end the execution of the loop or switch statements immeditely.
+
+```swift
+let indices: [Int] = [1,2,4,5,7,8,11,13,12]
+
+for index in indices {
+    if index > 2 {
+        print("First Number greater than 2: \(index)")
+        break
+    }
+
+}
+//First Number greater than 2: 4
+```
+
+## fallthrough
+
+```swift
+let lookup: Int = 12
+
+switch lookup {
+    case 1...5:
+        print("Found lookup value at 1...5 range")
+        fallthrough
+    case 6...13:
+        print("Found loojup value at 6...13")
+        fallthrough
+    default:
+        print("Finished lookup")
+}
+
+//Found lookup value at 6...13
+//Finished lookup
+```
+
+# Early Exit
+You use a guard statement to ensure a condition must be true in order for the code after the guard statement to be executed.
+Unlike an if statement, a guard statement always has an else. 
+
+
+```swift
+func answerDoor(ring: Bool){
+    guard ring else {
+        print("It's all in your head")
+        return
+    }
+
+    print("Answer the door!")
+}
+
+answerDoor(ring: true)
+answerDoor(ring: false)
+
+//Answer the door!
+//It's all in your head
+```
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
