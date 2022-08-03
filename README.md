@@ -1524,6 +1524,17 @@ print("Updated age is \(age)")
 
 
 ```
+- - -
+
+# Closures
+
+```swift
+let marvelActors:[String] = ["Chris Hemsworth","Scarlett Johansson","Chris Pratt","Paul Rudd","Robert Downey, Jr"]
+
+let sortedNames = marvelActors.sorted { actor1, actor2 in actor1 > actor2}
+
+print("Sorted List of names \(sorted)")
+```
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
