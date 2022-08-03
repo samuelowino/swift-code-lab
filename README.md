@@ -1507,6 +1507,23 @@ printNumbers(numbers: 4,3,5,2,6,4,7)
 ```
 
 # In-Out Parameters
+
+Function parameters are constants by default.To be able to change the function parameters, define the the parameter as **in-out**. 
+
+```swift
+var age: Int = 0 //the argument has to be a var not a let constant
+
+func updateAge(dob: Int, currentAge: inout Int){
+    let currentYear: Int = 2027
+    age = currentYear - dob
+}
+
+updateAge(dob: 1980, currentAge: &age)
+
+print("Updated age is \(age)")
+
+
+```
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
