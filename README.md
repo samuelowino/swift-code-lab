@@ -1575,16 +1575,53 @@ for color in Color.allCases {
 //Paint it Oranger
 ```
 
-
 - - - 
+
+# Strcutures and Classes
+
+## Definition syntax
+
+```swift
+class SomeClass {
+
+}
+
+struct SomeStruct {
+
+}
+```
+
+## Create an instance
+
+```swift
+let someClass = SomeClass()
+let someStruct = SomeStruct()
+```
+
+## Memberwise initializers for structs
+Structures by default come with a *memberwise initializer* that you can use to initialize the struct's properties by name.
+
+```swift
+struct College {
+    var name: String
+    var location: String
+    var population: Int
+}
+
+let kampalaUni = College(name: "Kamapala University", location: "Kamapala Uganda", population: 1200)
+
+print("College: \(kamapalaUni)")
+//College: College(name: "Kamapala University", location: "Kamapala Uganda", population: 1200)
+```
+
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
 > Classes are references types while atructures and enumerations are value types.A value type is a type whose value is copied when it's assigned to a variable or constant. Classes are reference types. Unlike value types, reference types are not copied when they are assigned to a variable or constant, or when they are passed to a function. Rather than a copy a referebce to the same existing instance is used.ref
 
-### 1. Value Types
+### 1. Value Types (Structures and Enumerations)
 
 ![Value Types](value-types-enums-structs.png)
 
-### 2. Reference Types
+### 2. Reference Types (Classes)
 
 ![Reference Types](refrence-types-classes.png)
