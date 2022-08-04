@@ -1535,6 +1535,47 @@ let sortedNames = marvelActors.sorted { actor1, actor2 in actor1 > actor2}
 
 print("Sorted List of names \(sorted)")
 ```
+
+# Enumerations
+
+Enumerations is a group of type-safe related values.
+
+```swift
+enum Switch: Int {
+    case on = 1
+    case off = 2
+}
+
+print("\(Switch.on)")
+print("\(Switch.on.rawValue)")
+print("\(Switch.off.rawValue)")
+
+//on
+//1
+//2
+```
+
+## Iterating over enumerations
+
+You can have access to all the enumeration's cases by conforming to **CaseIterable**.
+
+```swift
+enum Color: String, CaseIterable {
+    case blue = "Blueish"
+    case green = "Greeny"
+    case orange = "Oranger"
+}
+
+for color in Color.allCases {
+    print("Paint it \(color.rawValue)")
+}
+
+//Paint it Blueish
+//Paint it Greeny
+//Paint it Oranger
+```
+
+
 - - - 
 ## Swift Reference Types(Classes) Vs Value Types(Structures and Enumerations)
 
