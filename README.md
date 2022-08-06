@@ -1625,3 +1625,89 @@ print("College: \(kamapalaUni)")
 ### 2. Reference Types (Classes)
 
 ![Reference Types](refrence-types-classes.png)
+
+- - -
+
+# Properties
+
+**Stored variables** store values within a structure, enumeration or class whle **computed properties** calculate rather than store a value.
+
+You can define **property observers** to monitor the change of the value of the properties.
+
+You can define **property wrappers** to reuse code on getters and setter.
+
+## Stored Properties
+
+A stored property is value that is stored as part of a Structure or a class. Stored properties can be constants (let) or variables (var).
+
+let properties in a structure cannot be changed after struct initialization.
+
+```swift
+struct Rectangle {
+    var width: Int 
+    let height: Int
+}
+
+let box: Rectangle = Rectangle(width: 120, height: 80)
+
+print("The box \(box)")
+
+//============================================
+//The box Rectangle(width: 120, height: 80)
+//============================================
+
+box.width = 150 //sets the width property to 150
+
+print("The box \(box)")
+
+//=======================================================
+//The box After update Rectangle(width: 150, height: 80)
+//=======================================================
+
+box.height = 90 
+
+//=======================================================
+//error
+//cannot assign to property: 'height' is a 'let' constant
+//=======================================================
+
+```
+
+## Computed Property
+
+Computed properties provide a setter and getter that are used to access and updated other properties of the instance indirectly.
+
+```swift
+struct Circle {
+    var radius: Int
+    var diameter: Int
+    var center: Circle {
+        get {
+            let circleDiameter: Int = radius * 2
+            return Circle(radius: 8, diameter: circleDiameter)
+        }
+
+        set(circle) {
+            radius = circle.radius
+            if circle.diameter / 2 != circle.radius {
+                diameter = circle.radius * 2
+            } else {
+                diameter = circle.diameter
+            }
+        }
+    }
+}
+
+var redCircle: Circle = Circle(radius: 4, diameter: 8)
+
+print("Red circle \(redCircle)")
+
+//Red circle Circle(radius: 4, diameter: 8)
+
+redCircle.center = Circle(radius: 70, diameter: 100)
+
+print("Red circle updated \(redCircle)")
+
+//Red circle updated Circle(radius: 70, diameter: 140)
+```
+
