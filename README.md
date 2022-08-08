@@ -1711,3 +1711,173 @@ print("Red circle updated \(redCircle)")
 //Red circle updated Circle(radius: 70, diameter: 140)
 ```
 
+## Shorthand Setter Declaration
+
+A default name of **newValue** is provided to the setter if the new value name is not provided.
+
+```swift 
+struct Circle {
+    var radius: Int
+    var diameter: Int
+    var center: Circle {
+        get {
+            let circleDiameter: Int = radius * 2
+            return Circle(radius: 8, diameter: circleDiameter)
+        }
+
+        set {
+            radius = newValue.radius
+            if newValue.diameter / 2 != newValue.radius {
+                diameter = newValue.radius * 2
+            } else {
+                diameter = newValue.diameter
+            }
+        }
+    }
+}
+
+var redCircle: Circle = Circle(radius: 4, diameter: 8)
+
+print("Red circle \(redCircle)")
+
+//Red circle Circle(radius: 4, diameter: 8)
+
+redCircle.center = Circle(radius: 70, diameter: 100)
+
+print("Red circle updated \(redCircle)")
+
+//Red circle updated Circle(radius: 70, diameter: 140)
+```
+
+## Read-Only Computed Property
+
+A computed property with a getter and no setter is a read-only computed property.
+
+```swift
+struct BankAccount {
+    var totalDeposits: Double
+    var totalWithdraws: Double
+    var balance: Double {
+        totalDeposits - totalWithdraws
+    }
+}
+
+let barcklays = BankAccount(totalDeposits: 8000, totalWithdraws: 478.12)
+
+let balance = barcklays.balance
+
+print("Barcklays bank account balance is \(balance)")
+
+//Barcklays bank account balance is 7521.88
+```
+
+## Property Observers
+
+Observe and respond to changes in a property's values.
+
+```swift
+struct Drive {
+    var speed: Int
+    var distance: Int {
+        willSet(newDistance) {
+            print("Updating distance covered to \(newDistance)")
+        }
+
+        didSet {
+            if distance > 0 && timeHours > 0 {
+                speed = distance / timeHours
+            }
+            print("Speed is now \(speed) km/hr")
+        }
+    }
+
+    var timeHours: Int {
+        willSet(newTimeHours) {
+            print("Updating duration to \(newTimeHours) hours")
+        }
+
+        didSet {
+            if distance > 0 && timeHours > 0 {
+                speed = distance / timeHours
+            }
+
+            print("Speed is now \(speed) km/hr")
+        }
+    }
+}
+
+var drive = Drive(speed: 0, distance: 0, timeHours: 0)
+drive.distance = 80
+drive.timeHours = 1
+
+//Updating distance covered to 80
+//Speed is now 0 km/hr
+//Updating duration to 1 hours
+//Speed is now 80 km/hr
+
+//move....
+drive.distance = 120
+drive.timeHours = 4
+
+//Updating distance covered to 120
+//Speed is now 120 km/hr
+//Updating duration to 4 hours
+//Speed is now 30 km/hr
+
+```
+
+## Property Wrappers
+
+Property wrappers create a layer of seperation between code the manages a property's value and code the determine how a property's value is stored.
+
+When you use a property wrapper, you write property management code once and then apply the property wrapper on every other instance of that property.
+
+A property wrapper can be a class, enumeration or stucture annoted with **@propertyWrapper** and contains a computed **wrapperValue** property.
+
+```swift
+struct Student {
+    var name: String = ""
+    var passedExams: Bool = false
+    var score: Int = 0
+}
+
+@propertyWrapper
+struct PassListFilter {
+    private var student: Student = Student()
+    var wrappedValue: Student {
+        get { 
+            return student
+        }
+
+        set {
+            print("Updating student pass listing status... based on score \(newValue.score)")
+
+            if newValue.score >= 50 {
+                student.passedExams = true
+            } else {
+                student.passedExams = false
+            }
+
+            print("Student has \(student.passedExams ? "Passed ✅ 🔰" : "Failed ⚠️🛑")")
+        }
+
+    }
+}
+
+class Grader {
+    @PassListFilter var student: Student
+}
+
+let grader = Grader()
+//Updating student pass listing status... based on score 0
+//Student has Failed ⚠️ 🛑
+
+grader.student.name = "One Punch Man"
+grader.student.score = 34
+//Updating student pass listing status... based on score 34
+//Student has Failed ⚠️ 🛑
+
+grader.student.score = 84
+//Updating student pass listing status... based on score 84
+//Student has Passed ✅ 🔰
+```
