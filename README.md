@@ -1881,3 +1881,38 @@ grader.student.score = 84
 //Updating student pass listing status... based on score 84
 //Student has Passed ✅ 🔰
 ```
+
+- - -
+
+# Methods
+
+Methods are functions that are associated with a particular type.
+
+## The Self property
+
+Every instance of a type has an implicity property called **self** which is always exactly equivalent to the instance itself.
+
+Use **self** to refer to an instance within it's own instance methods.
+
+```swift
+struct LunarLander {
+    var weight: Double 
+    var maxCapacity: Int
+    var astronauts: Int
+
+    mutating func addAstronauts(withCount number: Int){
+        if number > self.maxCapacity {
+            print("Weight limit exceeded")
+        } else {
+            astronauts = number
+            print("Added \(self.astronauts) astronaut to the moon lander")
+        }
+    }
+}
+
+var apolloLunarLander = LunarLander(weight: 12000.12, maxCapacity: 3, astronauts: 0)
+
+apolloLunarLander.addAstronauts(withCount: 8)
+
+//Weight limit exceeded
+```
