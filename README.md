@@ -1916,3 +1916,35 @@ apolloLunarLander.addAstronauts(withCount: 8)
 
 //Weight limit exceeded
 ```
+
+## Modifying value types from within instance methods
+
+Structures and enumerations are value types. By defulat properties of value types cannot be modified from within instance methods.
+
+You can however opt into mutating behaviour with the **mutating** keyword.
+
+```swift
+struct Watch {
+    var hour: Int
+    var minute: Int
+
+    mutating func setAlarm(atHour hour: Int, atMin min: Int){
+        self.hour = hour
+        self.minute = min
+    }
+}
+
+var rolex = Watch(hour: 22, minute: 45)
+
+rolex.setAlarm(atHour: 23, atMin: 15)
+
+print("Alarm set for \(rolex)")
+
+//================================================
+//Alarm set for Watch(hour: 23, minute: 15)
+//================================================
+
+```
+
+> Not that you cannot change the properties of a constant (let) structure even if you declare mutating methods.
+
