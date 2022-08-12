@@ -1948,3 +1948,37 @@ print("Alarm set for \(rolex)")
 
 > Not that you cannot change the properties of a constant (let) structure even if you declare mutating methods.
 
+- - -
+
+# Optional Chaining
+
+```swift
+struct Planet {
+    var gravity: Gravity?
+}
+
+struct Gravity {
+    var force: Double = 10.23
+}
+
+var planet = Planet()
+
+if let gravityForce = planet.gravity?.force {
+    print("The planet has a gravitational force of \(gravityForce)")
+} else {
+    print("Planet gravity is still nil")
+}
+
+//Planet gravity is still nil
+
+planet.gravity = Gravity()
+
+if let gravityForce = planet.gravity?.force {
+    print("The planet has a gravitational force of \(gravityForce)")
+} else {
+    print("Planet gravity is still nil")
+}
+
+//The planet has a gravitational force of 10.23
+```
+
