@@ -23,3 +23,4 @@ if let gravityForce = planet.gravity?.force {
 } else {
     print("Planet gravity is still nil")
 }
+

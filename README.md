@@ -12,8 +12,10 @@
 $ cd swift-basics/swift-basics
 $ swift <file-name>.swift
 
-//e.g
-swift main.swift 
+// e.g
+
+$ swift main.swift 
+
 // this will run the main.swift file
 ```
 
@@ -441,13 +443,13 @@ A multiline String literal comprises of a series of characters **sorrounded the 
 ```swift
 let messageFromCEO: String = 
     """
-        Ladies and men, I bring you
-        a seires of ridiculous 
+        Ladies and gentlemen, I bring you
+        a series of ridiculous 
         cooperate bs
 
         from our main HQ
 
-        Yours cheerful,
+        Yours cheerfully,
         The CEO
     """
 ```
@@ -1980,5 +1982,255 @@ if let gravityForce = planet.gravity?.force {
 }
 
 //The planet has a gravitational force of 10.23
+```
+
+- - -
+
+# Error Handling
+
+There are four ways of handling errors in swift.
+
+* **You can propagate the error from a function to the code that calls that function**
+
+* **Handle the error using a do-catch statement**
+
+* **Handle the error as an optional value**
+
+* **Assert that the error will not occur**
+
+## Using throwing functions
+
+To indicate that a function, method or initializer can **throw an error** you use the **throws** keyword in the function declaration.
+
+```swift
+func launch() throws { }
+
+func launch() throws -> Rocket {}
+```
+
+
+```swift
+enum RocketError: Error {
+    case LaunchFailedError(cause: String)
+    case LaunchDelayedError(case: String, durationMin: Int)
+}
+
+func liftOff() throws {
+    throw RocketError.LaunchFailedError(cause: "No fuel left in tank")
+}
+
+func launch() throws {
+    try liftOff()
+}
+
+do {
+    try launch()
+} catch {
+    print("Rocket launch failed due to error \(error)")
+}
+
+//Rocket launch failed due to error LaunchFailedError(cause: "No fuel left in tank")
+```
+
+## defer statements
+Use a defer statement to execute a block of code before execution leaves the current block of code.
+
+```swift
+enum BadRequestException: Error {
+    case NetworkRequestFailed(cause: String)
+}
+
+struct NetworkConnection {
+    var openStatus: Bool
+}
+
+func get() throws {
+    throw BadRequestException.NetworkRequestFailed(cause: "Api request failed for reasons...")
+}
+
+func makeApiRequest() {
+    var networkConnection = NetworkConnection(openStatus: false)
+
+    do {
+        networkConnection.openStatus = true
+        try get()
+    } catch {
+        print("Api request failed but connection was closed and update to \(error)")
+    }
+
+    defer {
+        //close this connection regardless
+        networkConnection.openStatus = false  
+    }
+}
+```
+
+- - -
+
+# Concurrency
+
+**Asynchrnous code** can be suspended and resumed later. **Parallel code** means multiple pieces of the code run at the same time. 
+
+> The concurrency model is swift is built on threads but you don't interact with them directly.
+
+To indicate that a method of function is asynchronous you write the word **async** in the method declaration.
+
+```swift
+struct User {
+    var id: UUID
+    var name: String
+    var role: String
+}
+
+func getUsers() async -> [User] {
+
+}
+```
+
+# Initialization
+
+## Initializers
+
+Initializers are called to create a new instance of a particular type. 
+
+> When you assign a default value to a stored property or set it's initial value within initializers, the value of the property is called directly *without calling any property observers**
+
+Initializers are written using the **init** keyword
+
+```swift
+init() {
+
+}
+```
+
+```swift
+struct House {
+    var rooms: Int
+
+    init(){
+        rooms = 4
+    }
+}
+
+let house = House()
+
+print("The default number of rooms is \(house.rooms)")
+
+//The default number of rooms is 4
+
+```
+
+## Customize initialization
+
+```swift
+enum Color {
+    case red
+    case blue
+    case orange
+}
+
+struct Fruit {
+    var name: String
+    var color: Color
+
+    init(withName name: String, ofColor color: Color){
+        self.name = name
+        self.color = color
+    }
+}
+
+let apple = Fuite(withName: "Apple", ofColor: Color.red)
+
+print("Details \(apple)")
+
+//Details Fruit(name: "Apple", color: initialization.Color.red)
+```
+
+## Optional Property Types
+
+```swift
+struct Ginx {
+    var winxed: String?
+    var count: Int
+
+    init(winxed: String?, count: Int){
+        self.winxed = winxed
+        self.count = count
+    }
+}
+
+let ginxer = Ginx(winxed: nil, count: 0)
+
+print("Ginxer default \(ginxer)")
+
+//Ginxer default Ginx(winxed: nil, count: 0)
+```
+
+## Assigning a constant property during initialization
+
+You assign a default value to a constant property at any point during initialization, as long as it's set to a definite value by the time initialization finishes.
+
+> Once a constant property is assigned a value, it can't be further modified
+
+```swift
+struct PowerBrick {
+    let capacity: Double
+    var price: Double
+
+    init(withCapacity: Double, cost: Double){
+        self.capacity = withCapacity
+        self.price = cost
+    }
+}
+
+let brick = PowerBrick(withCapacity: 34.12, cost: 78.89)
+
+print("Adapter details: \(brick)")
+
+//Adapter details: PowerBrick(capacity: 34.12, price: 78.89)
+
+//brick.capacity = 100.88
+
+//error: cannot assign to property: 'capacity' is a 'let' constant
+
+```
+
+## Default Initializers
+
+```swift
+enum KeyboardType {
+    case qwerty
+    case qwertz
+    case other
+}
+
+struct Keyboard {
+    var type: KeyboardType = .qwerty
+    var brand: String = "Logitech"
+    var model: String = "MX Mini"
+}
+
+let logitechMXMini = Keyboard()
+
+print("⌨️ \(logitechMXMini)")
+
+//⌨️ Keyboard(type: initialization.KeyboardType.qwerty, brand: "Logitech", model: "MX Mini")
+```
+
+## Memberwise initializer
+
+```swift
+struct Home {
+    var rooms: Int = 3
+    var yard: Bool = false
+    var balcony: Bool = true
+    var windows: Int = 10
+}
+
+let mansion = Home()
+
+print("Home \(mansion)")
+
+//Home(rooms: 3, yard: false, balcony: true, windows: 10)
 ```
 
