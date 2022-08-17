@@ -2234,3 +2234,91 @@ print("Home \(mansion)")
 //Home(rooms: 3, yard: false, balcony: true, windows: 10)
 ```
 
+# Class Inheritance and Initialization
+
+All of a class's stored properties (including properties from it's super class) must be assigned an initial value during initialization.
+
+Swift provides two initializer types for classes:
+
+* **Designated initializers**
+* **Convenience initializers**
+
+**Designated initializers** are the primary initializers of a class.
+
+>Every class must have atleast one designated initializers.
+
+**Convenience initializers** are secondary initializes. You define a convinience initializer to class a designated initializers within the same class.
+
+## Syntaxt for designated and convenience initializers
+
+```swift
+
+//Designated initializer
+init(parameters) {
+
+}
+
+//convenience initializer
+convenience init(parameters){
+    //statements
+    //call to a designated initializer
+}
+```
+
+## Class initialization rules
+
+* **A designated initializer must call a designated initializer from it's immediate super class**
+
+* **A convinience initializer must call another designated initializer from the same class**
+
+* **Designated initializers must always delegate up**
+* **Convenience initializers must always delegate across**
+
+![Designated and Convenience initialiazers](class-init.png)
+
+```swift
+class TimerRunner {
+    var laps: Int
+
+    init(laps: Int){
+        self.laps = laps
+    }
+
+    func run(){
+        print("Running timer with \(laps) laps.")
+    }
+}
+
+class Timer : TimerRunner{
+    var minutes: Int
+    var seconds: Int
+    var started: Bool
+
+    init(min minutes: Int, sec seconds: Int, start started: Bool){
+        self.minutes = minutes
+        self.seconds = seconds
+        self.started = started
+
+        super.init(laps: 7)
+    }
+
+    convenience init(duration milliseconds: Int, started: Bool){
+        self.init(min: milliseconds / 1000 * 60, sec: milliseconds / 1000, start: started)
+    }
+
+    func check(){
+        print("Timer [ \(minutes) : \(seconds) ]")
+        print("Laps: \(super.laps)")
+    }
+}
+
+var quickTimer = Timer(min: 34, sec: 44, start: true)
+
+print("Quick timer \(quickTimer)")
+print("\(quickTimer.run())")
+
+var convenientTimer = Timer(duration: 360000, started: true)
+```
+
+
+

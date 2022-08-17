@@ -89,3 +89,49 @@ struct Home {
 let mansion = Home()
 
 print("\(mansion)")
+
+class TimerRunner {
+    var laps: Int
+
+    init(laps: Int){
+        self.laps = laps
+    }
+
+    func run(){
+        print("Running timer with \(laps) laps.")
+    }
+}
+
+class Timer : TimerRunner{
+    var minutes: Int
+    var seconds: Int
+    var started: Bool
+
+    init(min minutes: Int, sec seconds: Int, start started: Bool){
+        self.minutes = minutes
+        self.seconds = seconds
+        self.started = started
+
+        super.init(laps: 7)
+    }
+
+    convenience init(duration milliseconds: Int, started: Bool){
+        self.init(min: milliseconds / 1000 * 60, sec: milliseconds / 1000, start: started)
+    }
+
+    func check(){
+        print("Timer [ \(minutes) : \(seconds) ]")
+        print("Laps: \(super.laps)")
+    }
+}
+
+var quickTimer = Timer(min: 34, sec: 44, start: true)
+
+print("Quick timer \(quickTimer)")
+print("\(quickTimer.run())")
+
+var convenientTimer = Timer(duration: 360000, started: true)
+
+print("Convenient timer \(convenientTimer)")
+print("Convenient timer \(convenientTimer.run())")
+print("Convenient timer \(convenientTimer.check())")
