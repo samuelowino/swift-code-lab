@@ -2450,3 +2450,50 @@ if let ingenuity = ingenuity  as? Astronaut {
 ```
 
 
+- - -
+
+# Extensions
+
+Extensions add new functionality to classes, enums, structures and protocols.
+This includes the ability to extend types for which you don't have access to the original source code, know as **retroactive modeling**.
+
+Extensions in Swift can:
+
+* **Add computed instance properties and computed type properties**
+* **Define instance methods and type methods**
+* **Provide new initializers**
+* **Define subscripts**
+* **Define and use new nested types**
+* **Make an existing type conform to a protocol**
+
+> Extensions can add new functionality to a type, but they can’t override existing functionality.
+
+## Declare an extension with the extension keyword
+
+```swift
+struct SomeThing { }
+
+extension SomeThing {
+    // add some code
+}
+```
+
+## Make an existing type conform to multiple protocols
+
+```swift
+struct SomeThing { }
+
+protocol A { }
+
+protocol B { }
+
+extension SometThing : A, B { 
+    //protocol implementation code goes here
+}
+```
+
+
+
+
+
+
