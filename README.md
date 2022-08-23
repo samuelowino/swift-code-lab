@@ -2572,4 +2572,144 @@ modeCruiser.addMode("Suspension Kits")
 //Finisedh applying mode...New modes ["Suspension Kits"]
 ```
 
+ - - - 
+
+ # Protocols
+
+**A protocol defines a blueprint of functions, methods and properties.**
+
+You can *extend* a protocol to implement some of these methods and properties that conforming types can take advantage of.
+
+## Declare a Protocol
+
+```swift
+protocol AutoCruise { }
+```
+## Conform to a protocol
+
+```swift
+struct Flight : AutoCruise { }
+
+class PilotKit { } //super class 
+
+class AutoPilot: PilotKit, AutoCruise { } 
+
+//list super class first, then protocol
+```
+
+## Property Requirements
+
+A protocol can require any conforming type to provide an instance or value property with a particular name and type. 
+
+The protocol does not specify whether the property should be a *stored property* or *computed property*, it only specifies the required property name and value.
+
+**Property requirements** are always declared by as variable properties.
+
+Gettable and settable properties are followed by **{ get set }** after their type declaration
+
+Gettable properties are indicated by **{ get }**
+
+```swift
+protocol KillBox {
+    var stillStanding: Int { get set }
+    var size: Double { get }
+}
+
+struct RawBox: KillBox {
+    var stillStanding: Int
+    let size: Double = 1200
+}
+
+let raw = RawBox(stillStanding: 5)
+
+print("\(raw)")
+//RawBox(stillStanding: 5, size: 1200.0)
+```
+
+## Methods Requirements
+
+Protocols can require that specific instance methods and type methods be implemented by conforming types.
+
+These methods are written without a method body.
+
+Default values, can't be specified while declaring a method requirement.
+
+```swift
+protocol Bedroom {
+    func openDoor()
+
+    func switchOffLights()
+
+}
+
+struct MasterBedroom: Bedroom {
+    func openDoor() {
+        print("Opending the door to master bedroom")
+    }
+
+    func switchOffLights(){
+        print("Master bedroom lights are off")
+    }
+}
+
+struct KidsBedroom: Bedroom {
+    func openDoor(){
+        print("Opending the door to the kids bedroom")
+    }
+
+    func switchOffLights() {
+        print("Children switched off the lights to their bedroom")
+    }
+}
+
+let parentsBedroom = MasterBedroom()
+let kidsBedroom = KidsBedroom()
+
+parentsBedroom.openDoor() // Opending the door to master bedroom
+kidsBedroom.openDoor() //Opending the door to the kids bedroom
+kidsBedroom.switchOffLights() //Children switched off the lights to their bedroom
+parentsBedroom.switchOffLights() //Master bedroom lights are off
+
+```
+
+## Mutating method requirements
+
+```swift
+protocol PowerAdapter {
+    var voltage: Double { set get }
+    var capacity: Int { set get }
+    
+    mutating func changeConfig(withVolts voltage: Double, on capacity: Int)
+}
+
+struct AppleBrick: PowerAdapter {
+    var voltage: Double = 120
+    var capacity: Int = 1000
+
+    mutating func changeConfig(withVolts voltage: Double, on capacity: Int) {
+        self.voltage = voltage
+        self.capacity = capacity
+    }
+}
+
+var charger = AppleBrick()
+
+print("Old Charger Config: \(charger)")
+//Old Charger Config: AppleBrick(voltage: 120.0, capacity: 1000)
+
+charger.changeConfig(withVolts: 500, on: 6)
+
+print("New Charger Config: \(charger)")
+//New Charger Config: AppleBrick(voltage: 500.0, capacity: 6)
+```
+
+
+
+
+
+
+
+
+
+
 
