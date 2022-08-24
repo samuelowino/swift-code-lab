@@ -2703,7 +2703,108 @@ print("New Charger Config: \(charger)")
 //New Charger Config: AppleBrick(voltage: 500.0, capacity: 6)
 ```
 
+## Initializer Requirements
 
+```swift
+protocol RocketLauncher {
+    init(target: String)
+    
+    func launch()
+}
+
+struct Katyusha: RocketLauncher {
+    var direction: String = "Down"
+
+    init(target: String) {
+        self.direction = target
+    }
+
+    func launch() {
+        print("Launching rocket to \(direction)")
+    }
+}
+
+class Bazuka: RocketLauncher {
+    var structure: String
+
+    required init(target: String){
+        self.structure = target
+    }
+
+    func launch(){
+        print("Launching bazuka rocket into \(structure)")
+    }
+}
+
+let rocketA = Katyusha(target: "Road block")
+let rocketB = Bazuka(target: "Gummy Bears, Head Quaters")
+
+rocketA.launch()
+//Launching rocket to Road block
+
+rocketB.launch()
+//Launching bazuka rocket into Gummy Bears, Head Quaters
+```
+
+## Protocols as Types
+
+```swift
+protocol Car {
+    func drive() -> String
+
+    func stop() -> String
+}
+
+class Driver {
+    let model: String
+    let car: Car
+
+    init(car: Car, model: String){
+        self.model = model
+        self.car = car
+    }
+
+    func startCar(){
+        let driving = car.drive()
+
+        print(driving)
+    }
+
+    func stopCar(){
+        let stopping = car.stop()
+
+        print(stopping)
+    }
+}
+
+struct jeepTruck: Car {
+    func drive() -> String {
+        "Driving the jeep truck"
+    }
+
+    func stop() -> String {
+        "Stopping the jeep truck"
+    }
+}
+
+//Usage 
+let jeep = JeepTruck()
+let joel = Driver(car: jeep, model: "Jeep Wrangler")
+
+joel.startCar()
+//Driving the jeep truck
+
+joel.stopCar()
+//Stopping the jeep truck
+```
+
+## Delegation
+
+Delegation is a design pattern that enables a class or structure to hand off (or delegate) some of it's responsibilities to an instance of another type.
+
+This design pattern is implemented by defining a protocol that encapsulates the delegation responsibilities, such that a *conforming* type is guarateed to provide the functionality that has been delegated.
+
+## Adding Protocol Conformance with an extension
 
 
 
