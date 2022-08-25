@@ -164,3 +164,44 @@ joel.startCar()
 
 joel.stopCar()
 //Stopping the jeep truck
+
+
+protocol Flight {
+    func takeOff()
+    func land()
+}
+
+struct AENOBNFlight {
+    var airline: String
+    var cost: Double
+}
+
+extension AENOBNFlight: Flight {
+    func takeOff(){
+        print("\(self.airline) flight, cost \(self.cost) is on take off")
+    }
+
+    func land(){
+        print("\(self.airline) flight, cost \(self.cost) is landing")
+    }
+}
+
+let longFlight = AENOBNFlight(airline: "Fly Emirates", cost: 345_000)
+
+longFlight.takeOff()
+longFlight.land()
+
+//Fly Emirates flight, cost 345000.0 is on take off
+//Fly Emirates flight, cost 345000.0 is landing
+
+protocol CarEngine { }
+
+protocol V12Engine { }
+
+class EngineType: V12Engine { }
+
+class DieselEngine {
+    var engineType: AnyObject
+}
+
+extension DieselEngine: CarEngine where EngineType: V12Engine { }

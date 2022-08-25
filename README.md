@@ -2806,6 +2806,58 @@ This design pattern is implemented by defining a protocol that encapsulates the 
 
 ## Adding Protocol Conformance with an extension
 
+You can extend an existing type to adopt and conform to a new protocol.
+
+```swift
+protocol Flight {
+    func takeOff()
+    func land()
+}
+
+struct AENOBNFlight {
+    var airline: String
+    var cost: Double
+}
+
+extension AENOBNFlight: Flight {
+    func takeOff(){
+        print("\(self.airline) flight, cost \(self.cost) is on take off")
+    }
+
+    func land(){
+        print("\(self.airline) flight, cost \(self.cost) is landing")
+    }
+}
+
+let longFlight = AENOBNFlight(airline: "Fly Emirates", cost: 345_000)
+
+longFlight.takeOff()
+longFlight.land()
+
+//Fly Emirates flight, cost 345000.0 is on take off
+//Fly Emirates flight, cost 345000.0 is landing
+```
+
+## Conditionally conforming to a protocol
+
+You can make a generic type conditionally conform to a protocol by listing contraints while extending the type.
+
+Write these constraints with a **where clause**
+
+```swift
+//still buggy
+protocol CarEngine { }
+
+protocol V12Engine { }
+
+struct EngineType: V12Engine { }
+
+struct DieselEngine {
+    var engineType: EngineType
+}
+
+extension DieselEngine: CarEngine where EngineType: V12Engine { }
+```
 
 
 
