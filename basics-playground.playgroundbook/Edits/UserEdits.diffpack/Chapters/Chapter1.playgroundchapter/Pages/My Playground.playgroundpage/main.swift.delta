@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Diff</key>
+	<array>
+		<dict>
+			<key>ModifiedContent</key>
+			<string>import Foundation
+
+/*
+ SWIFT CONSTANTS AND VARIABLES
+ Constants and variables must be declared before they are used
+ Constants are delcared with `let` and variables are declared with `var`
+ **/
+
+/**
+ Declares a variable name `variable`.
+ Use variables to store values that can change
+ **/
+var variable = "hello world!"
+
+print(variable)
+/**
+ Update the `variable` with a new message
+ **/
+variable = "hello to the world!👋"
+
+print(variable)
+
+/**
+ Decalares a constant `NUMBER_OF_CAKES` with a value of `125
+ If a value in your code won't change, store it as a constant
+ **/
+let NUMBER_OF_CAKES = 125
+
+print(NUMBER_OF_CAKES)
+
+/**
+ NAMING:
+ Constants and variables can contain almost any character including Unicode characters
+ **/
+let 👩‍🏫 = "Teacher Mary"
+let 世界 = 451
+let Ω = 4.561
+
+/**
+ ⚠️ Constants and variable names cannot contain `whitespaces`, `mathematical-symbols`, `arrows`, or `line` and `box drawing`
+ **/
+
+// var * = 43                🔴 Error, `expected pattern`
+// var big value = 56411     🔴 Found an unexpected second identifier in variable declaration; is there an accidental break?
+// let -&gt; = "arrow label"    🔴 Error, `expected pattern`
+// let - = "line character". 🔴 Error, `expected pattern`
+
+/**
+ SWIFT TYPE ANNOTATION
+ Add a type annotation to specify the value a variable or constant can store
+ The colon `:` can be read as `of type`
+ **/
+
+var message: String = "Hello people of Earth 🌍"
+
+print("Alien message: \(message)")
+
+
+</string>
+			<key>ModifiedRange</key>
+			<string>{1, 1455}</string>
+			<key>OriginalContent</key>
+			<string></string>
+			<key>OriginalRange</key>
+			<string>{1, 0}</string>
+		</dict>
+	</array>
+	<key>File</key>
+	<string>Chapters/Chapter1.playgroundchapter/Pages/My Playground.playgroundpage/main.swift</string>
+</dict>
+</plist>
